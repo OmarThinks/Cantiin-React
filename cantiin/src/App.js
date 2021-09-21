@@ -1,5 +1,7 @@
 import './App.css';
 
+import {BrowserRouter, Route} from 'react-router-dom'
+
 import {backend_urls,frontend_urls} from './settings/urls';
 
 
