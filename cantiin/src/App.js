@@ -1,5 +1,11 @@
 import './App.css';
 
+import {backend_urls,frontend_urls} from './settings/urls';
+
+
+
+
+
 function App() {
   return (
 
