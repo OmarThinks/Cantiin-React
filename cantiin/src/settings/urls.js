@@ -14,6 +14,16 @@ const backend_urls =
 const frontend_urls = 
 {
     "home": "/",
+    "products":
+    {
+        "list":frontend_url+"/products",
+    },
+    "auth":
+    {
+        "login":frontend_url+"/login",
+        "signup":frontend_url+"/signup",
+        "logout":frontend_url+"/logout",
+    }
 };
 
 
