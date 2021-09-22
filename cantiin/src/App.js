@@ -2,6 +2,9 @@ import './App.css';
 
 import {BrowserRouter, Route} from 'react-router-dom'
 
+import ProductsList from './routes/products/list';
+
+
 
 import NavBar from "./components/navbar";
 import Home from "./routes/home";
@@ -14,6 +17,7 @@ function App() {
           <NavBar isLoggedIn={false}/>
             <Route exact path="/" component={Home} />
             <Route path="/home" component={Home} />
+            <Route path="/products" component={ProductsList} />
         </div>
       </BrowserRouter>
 
