@@ -16,7 +16,6 @@ function App() {
         <div className="App">
           <NavBar isLoggedIn={false}/>
             <Route exact path="/" component={Home} />
-            <Route path="/home" component={Home} />
             <Route path="/products" component={ProductsList} />
         </div>
       </BrowserRouter>
