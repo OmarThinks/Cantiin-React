@@ -9,13 +9,13 @@ import Home from "./routes/home";
 
 function App() {
   return (
-    <div>
-     <NavBar isLoggedIn={true} />
-
-    <Home/>
-      
-    </div>
-
+    <BrowserRouter>
+        <div className="App">
+          <NavBar isLoggedIn={false}/>
+            <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
+        </div>
+      </BrowserRouter>
 
 
   );
