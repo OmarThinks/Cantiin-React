@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 
-class Home extends Component {
-    render() { 
+const Home = (props) => {
+     
         return <div>
 
     <h1>  
@@ -10,6 +10,5 @@ class Home extends Component {
     </h1>
         </div>;
     }
-}
  
 export default Home;
