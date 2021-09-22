@@ -1,7 +1,5 @@
 import {settings} from '../settings';
 
-import { Fragment } from 'react';
-
 const NavBar = (props) => {
     
     let isLoggedIn=props.isLoggedIn;
