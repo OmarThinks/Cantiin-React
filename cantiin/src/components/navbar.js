@@ -1,10 +1,41 @@
 import {backend_urls,frontend_urls} from '../settings/urls';
 
+import { Fragment } from 'react';
 
-
-
-const NavBar = (isLoggedIn) => {
+const NavBar = (props) => {
     
+    let isLoggedIn=props.isLoggedIn;
+
+    let login_partial = "";
+    if(isLoggedIn)
+    {
+        console.log("He is Logged In");
+        login_partial=
+    <li>
+        <a href={frontend_urls.auth.logout}>
+            Log Out
+        </a>
+    </li>;
+    }
+    else{
+        console.log("He is Logged Out");
+        login_partial=
+            <div>
+    <li>
+        <a href={frontend_urls.auth.login}>
+        Login
+        </a>
+    </li>
+    <li>
+        <a href={frontend_urls.auth.signup}>
+        Sign Up
+        </a>
+    </li>
+    </div>
+    ;
+        
+    }
+
     return(
         <div>
                <ul>
@@ -17,23 +48,7 @@ const NavBar = (isLoggedIn) => {
                         </a>
                     </li>
 
-
-
-                    <li>
-                        <a href={frontend_urls.auth.login}>
-                        Login
-                        </a>
-                    </li>
-                    <li>
-                        <a href={frontend_urls.auth.signup}>
-                        Sign Up
-                        </a>
-                    </li>
-                    <li>
-                        <a href={frontend_urls.auth.logout}>
-                        Log Out
-                        </a>
-                    </li>
+                    {login_partial}
 
                 </ul>
         </div>
