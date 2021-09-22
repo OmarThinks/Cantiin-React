@@ -1,4 +1,4 @@
-import {backend_urls,frontend_urls} from '../settings/urls';
+import {settings} from '../settings';
 
 import { Fragment } from 'react';
 
@@ -12,7 +12,7 @@ const NavBar = (props) => {
         console.log("He is Logged In");
         login_partial=
     <li>
-        <a href={frontend_urls.auth.logout}>
+        <a href={settings.frontend_urls.auth.logout}>
             Log Out
         </a>
     </li>;
@@ -22,12 +22,12 @@ const NavBar = (props) => {
         login_partial=
             <div>
     <li>
-        <a href={frontend_urls.auth.login}>
+        <a href={settings.frontend_urls.auth.login}>
         Login
         </a>
     </li>
     <li>
-        <a href={frontend_urls.auth.signup}>
+        <a href={settings.frontend_urls.auth.signup}>
         Sign Up
         </a>
     </li>
@@ -40,16 +40,14 @@ const NavBar = (props) => {
         <div>
                <ul>
                     <li>
-                        <a href={frontend_urls.home}>Home</a>
+                        <a href={settings.frontend_urls.home}>Home</a>
                     </li>
                     <li>
-                        <a href={frontend_urls.products.list}>
+                        <a href={settings.frontend_urls.products.list}>
                         Products
                         </a>
                     </li>
-
                     {login_partial}
-
                 </ul>
         </div>
     )
