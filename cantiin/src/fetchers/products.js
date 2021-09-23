@@ -1,11 +1,5 @@
 import { settings } from '../settings';
-
 const axios = require('axios');
-let local = false;
-
-let url = 'https://cantiin.com/api/products/';
-
-if(local){url = "http://127.0.0.1:8000/api/products/";}
 
 
 function productsListFetcher(pageNumber = 1)
@@ -13,7 +7,7 @@ function productsListFetcher(pageNumber = 1)
 
     var config = {
         method: 'get',
-        url: url,
+        url: settings.backend_urls.products.list,
           
       };
       
