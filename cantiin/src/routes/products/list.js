@@ -5,12 +5,16 @@ const axios = require('axios');
 
 class ProductsList extends Component {
     state={
-        loaded:false,
-        products:[],
-        rendered:<div>
+        "loaded":false,
+        "products":[],
+        "rendered":<div>
             <h1>Products List:</h1>
             <p>Loading...</p>
-        </div>
+        </div>,
+        "currentPage":null,
+        "maxPage":null,
+        "nextPage":null,
+        "previousPage":null
     }
 
 
@@ -19,6 +23,16 @@ class ProductsList extends Component {
     handleSucessfulResponse(response)
     {
         console.log(response);
+        this.setState(
+    {
+        "loaded":true,
+        "products":response.data.results,
+        "currentPage":1,
+        "rendered":<div>
+        <h1>Products List:</h1>
+        <p>Loaded</p>
+    </div>,
+ });
     }
 
     /*Life Cycle*/
