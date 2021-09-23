@@ -6,13 +6,8 @@ function getItemsList(response)
 function getAllResultsNumber(response)
 {return response.data.count;}
 
-function getCurrentWindowPage()
-{
-    let page = qs.parse(window.location.search).page;
-    if(page)
-    {return page}
-    return 1;
-}
+
+
 
 
 function getPageUrl(url)
@@ -25,12 +20,12 @@ function getPageUrl(url)
     return 1;
 }
 
+
+function getCurrentWindowPage()
+{return getPageUrl(window.location.href);}
+
 function getCurrentResponsePage(response)
-{
-    return getPageUrl(response.config.url);
-    console.log(qs.parse(response.config.url.split("?")[1]).page);
-    return qs.parse(response.config.url.split("?"));
-}
+{return getPageUrl(response.config.url);}
 
 
 
