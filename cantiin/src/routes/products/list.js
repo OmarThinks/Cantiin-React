@@ -1,5 +1,9 @@
 import { Component } from 'react';
 import { productsListFetcher } from '../../fetchers/products';
+import {getItemsList, getAllResultsNumber,
+    getCurrentWindowPage} from "../../functions/fetching/list";
+
+
 const axios = require('axios');
 
 
@@ -25,22 +29,21 @@ class ProductsList extends Component {
     {
         console.log(response);
         
-        let products = response.data.results;
-        let allResultsNumber = response.data.count;
         this.setState(
     {
         "loaded":true,
-        "products":products,
+        "products":getItemsList(response),
         "rendered":<div>
         <h1>Products List:</h1>
         Loaded
         </div>,
-        "allResultsNumber":allResultsNumber,
-        "currentPage":1,
+        "allResultsNumber":getAllResultsNumber(response),
+        "currentPage":getCurrentWindowPage(),
         "maxPage":null,
         "nextPage":null,
         "previousPage":null
  });
+ console.log(this.state);
     }
 
     /*Life Cycle*/
