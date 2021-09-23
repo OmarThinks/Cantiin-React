@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { productsListFetcher } from '../../fetchers/products';
 import {getItemsList, getAllResultsNumber,
     getCurrentWindowPage,getCurrentResponsePage,
-    getApiResponsePage} from "../../functions/fetching/list";
+    getApiResponsePage,getMaxPage} from "../../functions/fetching/list";
 
 
 
@@ -40,7 +40,7 @@ class ProductsList extends Component {
         "allResultsNumber":getAllResultsNumber(response),
         "currentPage":getCurrentWindowPage(),
         "currentResponsePage":getCurrentResponsePage(response),
-        "maxPage":null,
+        "maxPage":getMaxPage(response),
         "nextPage":getApiResponsePage(response, true),
         "previousPage":getApiResponsePage(response, false)
  });

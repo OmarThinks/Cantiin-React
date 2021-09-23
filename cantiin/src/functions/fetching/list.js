@@ -1,4 +1,6 @@
+import {settings} from "../../settings";
 const qs = require('query-string');
+
 
 function getItemsList(response)
 {return response.data.results;}
@@ -108,13 +110,18 @@ function getApiResponsePage(response,next)
 
 
 
-function getMaxPage(response, perPage)
+function getMaxPage(response, perPage=settings.defaultPerPage)
 {
+    //console.log( Math.ceil(1));//1
+    //console.log( Math.ceil(1.0));//1
+    //console.log( Math.ceil(1.1));//2
     
+    return  Math.ceil(response.data.count/perPage);
+
 }
 
 
 
 
 export {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
-    getApiResponsePage};
+    getApiResponsePage,getMaxPage};
