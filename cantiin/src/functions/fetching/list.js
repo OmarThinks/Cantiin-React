@@ -8,6 +8,18 @@ function getAllResultsNumber(response)
 
 
 
+function buildUrl(pureUrl, params)
+{
+    //pureUrl="www.example.com";params={}; //www.example.com
+    //pureUrl="www.example.com";params={page:1}; //www.example.com?page=1
+
+    let paramsString =qs.stringify(params);
+    if(paramsString)
+    {return pureUrl+"?"+paramsString}
+    return pureUrl;
+}
+
+
 function getPureUrl(url)
 {
     //url="www.example.com";// Just for testing without "?" 
@@ -62,11 +74,10 @@ function getUrlPage(url)
     //url="www.example.com?notpage=545";// Just for testing with "?" without page =1 
     //url="www.example.com?page=2";// Just for testing with "?" without page=2
 
-    console.log(getUrlSpecificQueryPramater(url, "page",parseInt,1));
+    //console.log(getUrlSpecificQueryPramater(url, "page",parseInt,1));
     return getUrlSpecificQueryPramater(url, "page",parseInt,1);
 
 }
-
 
 function getCurrentWindowPage()
 {return getUrlPage(window.location.href);}
@@ -77,12 +88,21 @@ function getCurrentResponsePage(response)
 
 
 
-function getResponseNextPage(response)
+function getNextPage(response)
 {
-    //return response.data;
-    console.log(getPureUrl(response.config.url));
+    let nextAPiUrl = response.data.next;
+    if(!nextAPiUrl){return null;}
+
+    let nextApiPage = getUrlPage(nextAPiUrl);
+
+    let currentUrl = window.location.href;
+    let currentPureUrl= getPureUrl(currentUrl);
+    let nextQueryParams= getUrlQueryParameters(currentUrl);
+    nextQueryParams.page = nextApiPage;
+    return buildUrl(currentPureUrl,nextQueryParams);
+
 }
 
 
 export {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
-    getResponseNextPage};
+    getNextPage};
