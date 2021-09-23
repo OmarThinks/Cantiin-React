@@ -107,5 +107,14 @@ function getApiResponsePage(response,next)
 }
 
 
+
+function getMaxPage(response, perPage)
+{
+    
+}
+
+
+
+
 export {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
     getApiResponsePage};

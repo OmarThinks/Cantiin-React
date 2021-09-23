@@ -28,11 +28,16 @@ const frontend_urls =
 
 
 
+const defaultPerPage = 10;
+
+
 
 const settings={
     backend_urls: backend_urls,
     frontend_urls: frontend_urls,
+    defaultPerPage:defaultPerPage
 };
+
 
 
 

@@ -9,7 +9,7 @@ import {getItemsList, getAllResultsNumber,
 class ProductsList extends Component {
     state={
         "loaded":false,
-        "products":[],
+        "items":[],
         "rendered":<div>
             <h1>Products List:</h1>
             <p>Loading...</p>
@@ -32,7 +32,7 @@ class ProductsList extends Component {
         this.setState(
     {
         "loaded":true,
-        "products":getItemsList(response),
+        "items":getItemsList(response),
         "rendered":<div>
         <h1>Products List:</h1>
         Loaded
