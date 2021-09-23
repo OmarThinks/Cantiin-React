@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { productsListFetcher } from '../../fetchers/products';
+const axios = require('axios');
+
 
 class ProductsList extends Component {
     state={
@@ -11,11 +13,11 @@ class ProductsList extends Component {
         </div>
     }
 
-    componentDidMount(){
-        productsListFetcher();
-        /*.then((res)=>{console.log(res)
-        .catch((err)=>{console.log(err);})    
-            ;})*/
+    componentDidMount()
+    {
+        productsListFetcher()
+        .then((res)=>{console.log(res);})
+        .catch((err)=>{console.log(err);})
     }
 
     render() { 
