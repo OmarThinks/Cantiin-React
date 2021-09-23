@@ -1,10 +1,9 @@
 import { Component } from 'react';
 import { productsListFetcher } from '../../fetchers/products';
 import {getItemsList, getAllResultsNumber,
-    getCurrentWindowPage,getCurrentResponsePage} from "../../functions/fetching/list";
+    getCurrentWindowPage,getCurrentResponsePage,
+    getResponseNextPage} from "../../functions/fetching/list";
 
-
-const axios = require('axios');
 
 
 class ProductsList extends Component {
@@ -42,7 +41,7 @@ class ProductsList extends Component {
         "currentPage":getCurrentWindowPage(),
         "currentResponsePage":getCurrentResponsePage(response),
         "maxPage":null,
-        "nextPage":null,
+        "nextPage":getResponseNextPage(response),
         "previousPage":null
  });
  console.log(this.state);
@@ -51,7 +50,7 @@ class ProductsList extends Component {
     /*Life Cycle*/
     componentDidMount()
     {
-        productsListFetcher()
+        productsListFetcher(getCurrentWindowPage())
         .then((response)=>{this.handleSucessfulResponse(response);})
         .catch((err)=>{console.log(err);})
     }
