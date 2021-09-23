@@ -13,12 +13,25 @@ class ProductsList extends Component {
         </div>
     }
 
+
+    /*Helpers */
+
+    handleSucessfulResponse(response)
+    {
+        console.log(response);
+    }
+
+    /*Life Cycle*/
     componentDidMount()
     {
         productsListFetcher()
-        .then((res)=>{console.log(res);})
+        .then((response)=>{this.handleSucessfulResponse(response);})
         .catch((err)=>{console.log(err);})
     }
+
+
+
+
 
     render() { 
         return this.state.rendered;
