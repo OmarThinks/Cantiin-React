@@ -11,6 +11,7 @@ class ProductsList extends Component {
             <h1>Products List:</h1>
             <p>Loading...</p>
         </div>,
+        "allResultsNumber":null,
         "currentPage":null,
         "maxPage":null,
         "nextPage":null,
@@ -23,15 +24,22 @@ class ProductsList extends Component {
     handleSucessfulResponse(response)
     {
         console.log(response);
+        
+        let products = response.data.results;
+        let allResultsNumber = response.data.count;
         this.setState(
     {
         "loaded":true,
-        "products":response.data.results,
-        "currentPage":1,
+        "products":products,
         "rendered":<div>
         <h1>Products List:</h1>
-        <p>Loaded</p>
-    </div>,
+        Loaded
+        </div>,
+        "allResultsNumber":allResultsNumber,
+        "currentPage":1,
+        "maxPage":null,
+        "nextPage":null,
+        "previousPage":null
  });
     }
 
