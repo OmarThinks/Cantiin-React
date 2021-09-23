@@ -88,21 +88,24 @@ function getCurrentResponsePage(response)
 
 
 
-function getNextPage(response)
+function getApiResponsePage(response,next)
 {
-    let nextAPiUrl = response.data.next;
-    if(!nextAPiUrl){return null;}
+    let otherAPiUrl = response.data.previous;
+    if(next){otherAPiUrl = response.data.next;}
 
-    let nextApiPage = getUrlPage(nextAPiUrl);
+
+    if(!otherAPiUrl){return null;}
+
+    let nextApiPage = getUrlPage(otherAPiUrl);
 
     let currentUrl = window.location.href;
     let currentPureUrl= getPureUrl(currentUrl);
-    let nextQueryParams= getUrlQueryParameters(currentUrl);
-    nextQueryParams.page = nextApiPage;
-    return buildUrl(currentPureUrl,nextQueryParams);
+    let newQueryParams= getUrlQueryParameters(currentUrl);
+    newQueryParams.page = nextApiPage;
+    return buildUrl(currentPureUrl,newQueryParams);
 
 }
 
 
 export {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
-    getNextPage};
+    getApiResponsePage};
