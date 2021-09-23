@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { productsListFetcher } from '../../fetchers/products';
 import {getItemsList, getAllResultsNumber,
-    getCurrentWindowPage} from "../../functions/fetching/list";
+    getCurrentWindowPage,getCurrentResponsePage} from "../../functions/fetching/list";
 
 
 const axios = require('axios');
@@ -17,6 +17,7 @@ class ProductsList extends Component {
         </div>,
         "allResultsNumber":null,
         "currentPage":null,
+        "currentResponsePage":null,
         "maxPage":null,
         "nextPage":null,
         "previousPage":null
@@ -39,6 +40,7 @@ class ProductsList extends Component {
         </div>,
         "allResultsNumber":getAllResultsNumber(response),
         "currentPage":getCurrentWindowPage(),
+        "currentResponsePage":getCurrentResponsePage(response),
         "maxPage":null,
         "nextPage":null,
         "previousPage":null
