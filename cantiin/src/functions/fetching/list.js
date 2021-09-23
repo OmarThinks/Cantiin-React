@@ -8,14 +8,27 @@ function getAllResultsNumber(response)
 
 
 
+function getPureUrl(url)
+{
+    //url="www.example.com";// Just for testing without "?" 
+    //url="www.example.com?";// Just for testing with "?" empty 
+    //url="www.example.com?notpage=545";// Just for testing with "?" without page 
+    //url="www.example.com?page=545";// Just for testing with "?" without page
+    // all equal "www.example.com"
+    return url.split("?")[0];
+}
+
+
+
+
 
 
 function getUrlQueryParameters(url)
 {
-    //url="www.example.com";// Just for testing without "?"
-    //url="www.example.com?";// Just for testing with "?" empty
-    //url="www.example.com?notpage=545";// Just for testing with "?" without page
-    //url="www.example.com?page=545";// Just for testing with "?" without page
+    //url="www.example.com";// Just for testing without "?" = 1
+    //url="www.example.com?";// Just for testing with "?" empty = 1
+    //url="www.example.com?notpage=545";// Just for testing with "?" without page =1 
+    //url="www.example.com?page=2";// Just for testing with "?" without page=2
     let params = url.split("?")[1];
     if(params){return qs.parse(params);}
     else{return {};}
@@ -44,10 +57,10 @@ function getUrlSpecificQueryPramater(url, param,parser,defaultValue)
 function getUrlPage(url)
 {
     //console.log(getUrlQueryParameters(url));
-    //url="www.example.com";// Just for testing without "?"
-    //url="www.example.com?";// Just for testing with "?" empty
-    //url="www.example.com?notpage=545";// Just for testing with "?" without page
-    //url="www.example.com?page=2";// Just for testing with "?" without page
+    //url="www.example.com";// Just for testing without "?" = 1
+    //url="www.example.com?";// Just for testing with "?" empty = 1
+    //url="www.example.com?notpage=545";// Just for testing with "?" without page =1 
+    //url="www.example.com?page=2";// Just for testing with "?" without page=2
 
     console.log(getUrlSpecificQueryPramater(url, "page",parseInt,1));
     return getUrlSpecificQueryPramater(url, "page",parseInt,1);
@@ -67,7 +80,7 @@ function getCurrentResponsePage(response)
 function getResponseNextPage(response)
 {
     //return response.data;
-    console.log(getUrlPage(response.config.url));
+    console.log(getPureUrl(response.config.url));
 }
 
 
