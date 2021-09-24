@@ -3,6 +3,7 @@ import {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
 import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
         getApiResponsePage,getMaxPage} from '../functions/fetching/list';
 
+import PaginationButton from "../components/paginatioButton";
 
 
 
