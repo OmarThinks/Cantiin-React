@@ -3,6 +3,9 @@ import {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
 import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
         getApiResponsePage,getMaxPage} from '../functions/fetching/list';
 
+import {settings} from "../settings";
+
+
 
 function getCurrentPagePaginationButton(currentUrl=window.location.href)
 {
@@ -68,8 +71,7 @@ function getFirstPagePaginationButton(currentUrl=window.location.href)
 
 
 
-//import maxPage from settings 
-function getNextPagePaginationButton(currentUrl=window.location.href,maxPage= maxPage)
+function getNextPagePaginationButton(currentUrl=window.location.href,maxPage)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber>=maxPage)
@@ -93,7 +95,7 @@ function getNextPagePaginationButton(currentUrl=window.location.href,maxPage= ma
 
 
 
-function getLastPagePaginationButton(currentUrl=window.location.href,maxPage= maxPage)
+function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber>=maxPage)
@@ -120,7 +122,36 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage= ma
 
 
 
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 
 

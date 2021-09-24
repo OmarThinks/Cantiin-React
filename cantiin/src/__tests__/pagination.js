@@ -3,6 +3,10 @@ import {getCurrentPagePaginationButton,getPrevPagePaginationButton,
     getLastPagePaginationButton} 
 from "../functions/pagination";
 
+
+
+
+
 test('functions/pagination/getCurrentPagePaginationButton', () => {
     expect((getCurrentPagePaginationButton("www.example.com")).toString())
     .toEqual((<li>
@@ -150,7 +154,7 @@ test('functions/pagination/getNextPagePaginationButton', () => {
         </a>
     </li>).toString());
 
-    expect((getNextPagePaginationButton("www.example.com?page=5&fast=true"),6).toString())
+    expect((getNextPagePaginationButton("www.example.com?page=5&fast=true",6)).toString())
     .toEqual((<li>
         <a href={"www.example.com?fast=true&page=6"}>
             <button>{">"}</button>
@@ -198,14 +202,14 @@ test('functions/pagination/getLastPagePaginationButton', () => {
         </a>
     </li>).toString());
 
-    expect((getLastPagePaginationButton("www.example.com?page=5&fast=true"),6).toString())
+    expect((getLastPagePaginationButton("www.example.com?page=5&fast=true",6)).toString())
     .toEqual((<li>
         <a href={"www.example.com?fast=true&page=6"}>
             <button>{">>"}</button>
         </a>
     </li>).toString());
 
-    expect((getLastPagePaginationButton("www.example.com?page=5&fast=true"),7).toString())
+    expect((getLastPagePaginationButton("www.example.com?page=5&fast=true",7)).toString())
     .toEqual((<li>
         <a href={"www.example.com?fast=true&page=7"}>
             <button>{">>"}</button>
