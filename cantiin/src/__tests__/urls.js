@@ -55,3 +55,18 @@ test('functions/urls/getUrlSpecificQueryPramater', () => {
 
 
 
+test('functions/urls/getUrlPage', () => {
+  expect(getUrlPage("www.example.com")).toEqual(1);
+  expect(getUrlPage(
+    "www.example.com?")).toEqual(1);
+  expect(getUrlPage(
+    "www.example.com?page=2")).toEqual(2);    
+  expect(getUrlPage("www.example.com?notPage=2")).toEqual(1);    
+});
+
+
+
+
+
+
+
