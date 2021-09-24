@@ -1,7 +1,7 @@
 const qs = require('query-string');
 
 
-function buildUrl(pureUrl, params)
+function buildUrl(pureUrl, params ={})
 {
     //pureUrl="www.example.com";params={}; //www.example.com
     //pureUrl="www.example.com";params={page:1}; //www.example.com?page=1
