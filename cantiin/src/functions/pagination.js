@@ -122,7 +122,51 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
 
 
 
-/*
+
+function getPrevPagesPaginationButtons(currentUrl=window.location.href,maxPage)
+{
+    let currentPageNumber = getUrlPage(currentUrl);
+    if(currentPageNumber<=1)
+    {return "";}
+
+    let prevQueryParameters = getUrlQueryParameters(currentUrl);
+    prevQueryParameters["page"]= currentPageNumber-1;
+    
+    let href = buildUrl(getPureUrl(currentUrl),prevQueryParameters);
+    
+    return <li>
+        <a href={href}>
+            <button>{"<"}</button>
+        </a>
+    </li>;
+}
+
+
+
+
+
+
+
+
+function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPage)
+{
+    let currentPageNumber = getUrlPage(currentUrl);
+    if(currentPageNumber>=maxPage)
+    {return <li>
+        <button disabled>{">>"}</button>
+    </li>}
+
+    let nextQueryParameters = getUrlQueryParameters(currentUrl);
+    nextQueryParameters["page"]= maxPage;
+    
+    let href = buildUrl(getPureUrl(currentUrl),nextQueryParameters);
+    
+    return <li>
+        <a href={href}>
+            <button>{">>"}</button>
+        </a>
+    </li>;
+}
 
 
 
@@ -132,26 +176,6 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 
 
 
