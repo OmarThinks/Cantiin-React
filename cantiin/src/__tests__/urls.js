@@ -28,3 +28,30 @@ test('functions/urls/getUrlQueryParameters', () => {
   expect(getUrlQueryParameters("www.example.com?page=2&fast=true"))
   .toEqual({"fast":"true","page":"2"});
 });
+
+
+
+
+
+
+
+
+test('functions/urls/getUrlSpecificQueryPramater', () => {
+  expect(getUrlSpecificQueryPramater(
+    "www.example.com","page",parseInt,5)).toEqual(5);
+  expect(getUrlSpecificQueryPramater(
+    "www.example.com?","page",parseInt,5)).toEqual(5);
+  expect(getUrlSpecificQueryPramater(
+    "www.example.com?page=2",
+    "page",parseInt,5)).toEqual(2);    
+  expect(getUrlSpecificQueryPramater(
+    "www.example.com?notPage=2",
+    "page",parseInt,5)).toEqual(5);    
+});
+
+
+
+
+
+
+
