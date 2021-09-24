@@ -3,7 +3,6 @@ import {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
 import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
         getApiResponsePage,getMaxPage} from '../functions/fetching/list';
 
-import {settings} from "../settings";
 
 
 
@@ -22,14 +21,11 @@ function getPrevPagePaginationButton(currentUrl=window.location.href)
     {return <li>
         <button disabled>{"<"}</button>
     </li>}
-
-    let prevQueryParameters = getUrlQueryParameters(currentUrl);
-    prevQueryParameters["page"]= currentPageNumber-1;
     
-    let href = buildUrl(getPureUrl(currentUrl),prevQueryParameters);
     
     return <li>
-        <a href={href}>
+        <a href={buildUrl(getPureUrl(currentUrl),
+    {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1})}>
             <button>{"<"}</button>
         </a>
     </li>;
@@ -47,13 +43,10 @@ function getFirstPagePaginationButton(currentUrl=window.location.href)
         <button disabled>{"<<"}</button>
     </li>}
 
-    let prevQueryParameters = getUrlQueryParameters(currentUrl);
-    prevQueryParameters["page"]= 1;
-    
-    let href = buildUrl(getPureUrl(currentUrl),prevQueryParameters);
-    
+        
     return <li>
-        <a href={href}>
+        <a href={buildUrl(getPureUrl(currentUrl),
+    {...getUrlQueryParameters(currentUrl),"page":1})}>
             <button>{"<<"}</button>
         </a>
     </li>;
@@ -79,17 +72,16 @@ function getNextPagePaginationButton(currentUrl=window.location.href,maxPage)
         <button disabled>{">"}</button>
     </li>}
 
-    let nextQueryParameters = getUrlQueryParameters(currentUrl);
-    nextQueryParameters["page"]= currentPageNumber+1;
-    
-    let href = buildUrl(getPureUrl(currentUrl),nextQueryParameters);
     
     return <li>
-        <a href={href}>
+        <a href={buildUrl(getPureUrl(currentUrl),
+            {...getUrlQueryParameters(currentUrl),
+            "page":currentPageNumber+1})}>
             <button>{">"}</button>
         </a>
     </li>;
 }
+
 
 
 
@@ -102,14 +94,11 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
     {return <li>
         <button disabled>{">>"}</button>
     </li>}
-
-    let nextQueryParameters = getUrlQueryParameters(currentUrl);
-    nextQueryParameters["page"]= maxPage;
     
-    let href = buildUrl(getPureUrl(currentUrl),nextQueryParameters);
     
     return <li>
-        <a href={href}>
+        <a href={buildUrl(getPureUrl(currentUrl),
+    {...getUrlQueryParameters(currentUrl),"page":maxPage})}>
             <button>{">>"}</button>
         </a>
     </li>;
@@ -129,10 +118,10 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href,maxPage)
     if(currentPageNumber<=1)
     {return "";}
 
-    let prevQueryParameters = getUrlQueryParameters(currentUrl);
-    prevQueryParameters["page"]= currentPageNumber-1;
+    let currentQueryParameters = getUrlQueryParameters(currentUrl);
+    currentQueryParameters["page"]= currentPageNumber-1;
     
-    let href = buildUrl(getPureUrl(currentUrl),prevQueryParameters);
+    let href = buildUrl(getPureUrl(currentUrl),currentQueryParameters);
     
     return <li>
         <a href={href}>
@@ -156,10 +145,10 @@ function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPage)
         <button disabled>{">>"}</button>
     </li>}
 
-    let nextQueryParameters = getUrlQueryParameters(currentUrl);
-    nextQueryParameters["page"]= maxPage;
+    let currentQueryParameters = getUrlQueryParameters(currentUrl);
+    currentQueryParameters["page"]= maxPage;
     
-    let href = buildUrl(getPureUrl(currentUrl),nextQueryParameters);
+    let href = buildUrl(getPureUrl(currentUrl),currentQueryParameters);
     
     return <li>
         <a href={href}>
