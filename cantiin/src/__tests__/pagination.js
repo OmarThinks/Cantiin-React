@@ -150,10 +150,65 @@ test('functions/pagination/getNextPagePaginationButton', () => {
         </a>
     </li>).toString());
 
-    expect((getNextPagePaginationButton("www.example.com?page=5&fast=true")).toString())
+    expect((getNextPagePaginationButton("www.example.com?page=5&fast=true"),6).toString())
     .toEqual((<li>
         <a href={"www.example.com?fast=true&page=6"}>
             <button>{">"}</button>
+        </a>
+    </li>).toString());
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+test('functions/pagination/getLastPagePaginationButton', () => {
+    expect((getLastPagePaginationButton("www.example.com",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">>"}</button>
+    </li>).toString());
+    
+    expect((getLastPagePaginationButton("www.example.com?",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">>"}</button>
+    </li>).toString());
+    
+    expect((getLastPagePaginationButton("www.example.com?notPage=5",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">>"}</button>
+    </li>).toString());
+
+   expect((getLastPagePaginationButton("www.example.com?page=0",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">>"}</button>
+    </li>).toString());
+
+    expect((getLastPagePaginationButton("www.example.com?page=5",6)).toString())
+    .toEqual((<li>
+        <a href={"www.example.com?page=6"}>
+            <button>{">>"}</button>
+        </a>
+    </li>).toString());
+
+    expect((getLastPagePaginationButton("www.example.com?page=5&fast=true"),6).toString())
+    .toEqual((<li>
+        <a href={"www.example.com?fast=true&page=6"}>
+            <button>{">>"}</button>
+        </a>
+    </li>).toString());
+
+    expect((getLastPagePaginationButton("www.example.com?page=5&fast=true"),7).toString())
+    .toEqual((<li>
+        <a href={"www.example.com?fast=true&page=7"}>
+            <button>{">>"}</button>
         </a>
     </li>).toString());
 
