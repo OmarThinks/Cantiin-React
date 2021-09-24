@@ -227,16 +227,6 @@ test('functions/pagination/getLastPagePaginationButton', () => {
 
 
 
-test('js object mod', () => {
-    let originalObject = {"page":1,"q":"what"};
-    expect({...originalObject,"page":2})
-    .toEqual({"page":2,"q":"what"});
-    expect(originalObject)
-    .toEqual({"page":1,"q":"what"});
-});
-
-
-
 
 
 
