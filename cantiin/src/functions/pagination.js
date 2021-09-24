@@ -36,7 +36,7 @@ function getPrevPagePaginationButton(currentUrl=window.location.href)
 
 
 
-function getfirstPagePaginationButton(currentUrl=window.location.href)
+function getFirstPagePaginationButton(currentUrl=window.location.href)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber<=1)
@@ -129,5 +129,5 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage= ma
 
 
 export {getCurrentPagePaginationButton,getPrevPagePaginationButton,
-    getfirstPagePaginationButton,getNextPagePaginationButton,
+    getFirstPagePaginationButton,getNextPagePaginationButton,
     getLastPagePaginationButton};
