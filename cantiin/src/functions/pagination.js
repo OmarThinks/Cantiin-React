@@ -15,7 +15,7 @@ function getCurrentPagePaginationButton(currentUrl=window.location.href)
 function getPrevPagePaginationButton(currentUrl=window.location.href)
 {
     let currentPageNumber = getUrlPage(currentUrl);
-    if(currentPageNumber==1)
+    if(currentPageNumber<=1)
     {return <li>
         <button disabled>{"<"}</button>
     </li>}
@@ -27,7 +27,7 @@ function getPrevPagePaginationButton(currentUrl=window.location.href)
     
     return <li>
         <a href={href}>
-            <button>{prevQueryParameters["page"]}</button>
+            <button>{"<"}</button>
         </a>
     </li>;
 }
@@ -35,4 +35,99 @@ function getPrevPagePaginationButton(currentUrl=window.location.href)
         
 
 
-export {getCurrentPagePaginationButton,getPrevPagePaginationButton};
+
+function getfirstPagePaginationButton(currentUrl=window.location.href)
+{
+    let currentPageNumber = getUrlPage(currentUrl);
+    if(currentPageNumber<=1)
+    {return <li>
+        <button disabled>{"<<"}</button>
+    </li>}
+
+    let prevQueryParameters = getUrlQueryParameters(currentUrl);
+    prevQueryParameters["page"]= 1;
+    
+    let href = buildUrl(getPureUrl(currentUrl),prevQueryParameters);
+    
+    return <li>
+        <a href={href}>
+            <button>{"<<"}</button>
+        </a>
+    </li>;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//import maxPage from settings 
+function getNextPagePaginationButton(currentUrl=window.location.href,maxPage= maxPage)
+{
+    let currentPageNumber = getUrlPage(currentUrl);
+    if(currentPageNumber>=maxPage)
+    {return <li>
+        <button disabled>{">"}</button>
+    </li>}
+
+    let nextQueryParameters = getUrlQueryParameters(currentUrl);
+    nextQueryParameters["page"]= currentPageNumber+1;
+    
+    let href = buildUrl(getPureUrl(currentUrl),nextQueryParameters);
+    
+    return <li>
+        <a href={href}>
+            <button>{">"}</button>
+        </a>
+    </li>;
+}
+
+
+
+
+
+function getLastPagePaginationButton(currentUrl=window.location.href,maxPage= maxPage)
+{
+    let currentPageNumber = getUrlPage(currentUrl);
+    if(currentPageNumber>=maxPage)
+    {return <li>
+        <button disabled>{">>"}</button>
+    </li>}
+
+    let nextQueryParameters = getUrlQueryParameters(currentUrl);
+    nextQueryParameters["page"]= maxPage;
+    
+    let href = buildUrl(getPureUrl(currentUrl),nextQueryParameters);
+    
+    return <li>
+        <a href={href}>
+            <button>{">>"}</button>
+        </a>
+    </li>;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export {getCurrentPagePaginationButton,getPrevPagePaginationButton,
+    getfirstPagePaginationButton,getNextPagePaginationButton,
+    getLastPagePaginationButton};
