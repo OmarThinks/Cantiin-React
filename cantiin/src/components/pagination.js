@@ -64,8 +64,6 @@ class Pagination extends Component {
         <li>{prevPageButton}</li>
         <li>{nextPageButton}</li>
         </ul>
-
-
             </div> );
     }
 }
