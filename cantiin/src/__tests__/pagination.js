@@ -74,9 +74,6 @@ test('functions/pagination/getPrevPagePaginationButton', () => {
 
 
 
-
-
-
 test('functions/pagination/getFirstPagePaginationButton', () => {
     expect((getFirstPagePaginationButton("www.example.com")).toString())
     .toEqual((<li>
@@ -111,6 +108,55 @@ test('functions/pagination/getFirstPagePaginationButton', () => {
             <button>{"<<"}</button>
         </a>
     </li>).toString());
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+test('functions/pagination/getNextPagePaginationButton', () => {
+    expect((getNextPagePaginationButton("www.example.com",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">"}</button>
+    </li>).toString());
+    
+    expect((getNextPagePaginationButton("www.example.com?",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">"}</button>
+    </li>).toString());
+    
+    expect((getNextPagePaginationButton("www.example.com?notPage=5",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">"}</button>
+    </li>).toString());
+
+   expect((getNextPagePaginationButton("www.example.com?page=0",1)).toString())
+    .toEqual((<li>
+        <button disabled={true}>{">"}</button>
+    </li>).toString());
+
+    expect((getNextPagePaginationButton("www.example.com?page=5",6)).toString())
+    .toEqual((<li>
+        <a href={"www.example.com?page=6"}>
+            <button>{">"}</button>
+        </a>
+    </li>).toString());
+
+    expect((getNextPagePaginationButton("www.example.com?page=5&fast=true")).toString())
+    .toEqual((<li>
+        <a href={"www.example.com?fast=true&page=6"}>
+            <button>{">"}</button>
+        </a>
+    </li>).toString());
+
 });
 
 
