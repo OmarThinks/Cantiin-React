@@ -36,6 +36,10 @@ const PaginationButton = (type, disabled=false, link=null, active=false)=>
 
     if      (type=="first"){buttonText="<<";}
     else if (type=="prev"){buttonText="<";}
+    else if (type=="number"){buttonText="<";}
+    else if (type=="next"){buttonText="<";}
+    else if (type=="last"){buttonText="<";}
+    else{buttonText="...";} //type = dots
 
 
 
