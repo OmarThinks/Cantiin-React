@@ -9,6 +9,7 @@ import PaginationButton from "../components/paginatioButton";
 
 function getCurrentPagePaginationButton(currentUrl=window.location.href)
 {
+    return <PaginationButton type="number" active={true}/>
     let currentPageNumber = getUrlPage(currentUrl);
     return <li>
         <button disabled>{currentPageNumber}</button>

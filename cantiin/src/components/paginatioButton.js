@@ -18,8 +18,13 @@ if not disabled, this link will not work
 
 */
 
-const PaginationButton = (type, disabled=false, link=null, active=false)=>
+const PaginationButton = (props)=>
 {
+    let {type} = props.type;
+    let {disabled = false} = props.disabled;
+    let {link = null} = props.link;
+    let {active = false} = props.active;
+    //type, disabled=false, link=null, active=false
     if(link){var number = getUrlPage(link);}
     
     assert(type in ["first","prev","number","next","last","dots"],
@@ -30,7 +35,7 @@ const PaginationButton = (type, disabled=false, link=null, active=false)=>
         {assert(link!=null,"this is not disabled, so a link must be passed");}
     }
 
-    if(active){disabled=true;}
+    if(active){return <li><button disabled>{number}</button></li>;}
 
     let buttonText="";
 
@@ -39,10 +44,22 @@ const PaginationButton = (type, disabled=false, link=null, active=false)=>
     else if (type=="number"){buttonText="<";}
     else if (type=="next"){buttonText="<";}
     else if (type=="last"){buttonText="<";}
-    else{buttonText="...";} //type = dots
+    else {return <li><button disabled>...</button></li>;} //type = dots
 
 
 
+    if(disabled){
+        return <li>
+            <button disabled>{buttonText}</button>
+        </li>;
+    }
+    else{
+        return <li>
+            <a href={link}>
+                <button>{buttonText}</button>
+            </a>
+        </li>;
+    }
 }
 
 
