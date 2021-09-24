@@ -9,12 +9,64 @@ import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentRespon
 
 class Pagination extends Component {
     constructor(props) {
-        let request = props.request;
-
-        this.state = { "request":request }
+        console.log("This is props");
+        super(props);
+        let response = props.response;
+        this.state = 
+    { 
+        "response":response,
+        "currentPage":getCurrentWindowPage(),
+        "currentResponsePage":getCurrentResponsePage(response),
+        "maxPage":getMaxPage(response),
+        "nextPage":getApiResponsePage(response, true),
+        "previousPage":getApiResponsePage(response, false)
+    };
     }
     render() { 
-        return ( <div>This is pagination</div> );
+
+        let minPageButton = "";
+        let maxPageButton = "";
+        let currentPageButton = "";
+        let nextPageButton = "";
+        let prevPageButton = "";
+
+        if(this.state.previousPage)
+        {
+            prevPageButton=
+            <a href={this.state.previousPage}>
+                <button>
+                {"<"}
+                </button>
+                </a>; 
+        }
+        else{
+            prevPageButton = <button disabled> {"<"} </button>;
+        }
+        if(this.state.nextPage)
+        {
+            nextPageButton=
+            <a href={this.state.nextPage}>
+                <button>
+                {">"}
+                </button>
+            </a>; 
+        }
+        else{
+            nextPageButton = <button disabled> {">"} </button>;
+        }
+        
+
+
+
+        return ( <div>
+            This is pagination
+        <ul>
+        <li>{prevPageButton}</li>
+        <li>{nextPageButton}</li>
+        </ul>
+
+
+            </div> );
     }
 }
  

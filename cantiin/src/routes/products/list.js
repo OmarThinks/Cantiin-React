@@ -3,7 +3,7 @@ import { productsListFetcher } from '../../fetchers/products';
 import {getItemsList, getAllResultsNumber,
     getCurrentWindowPage,getCurrentResponsePage,
     getApiResponsePage,getMaxPage} from "../../functions/fetching/list";
-
+import Pagination from '../../components/pagination';
 
 
 class ProductsList extends Component {
@@ -35,6 +35,7 @@ class ProductsList extends Component {
         "items":getItemsList(response),
         "rendered":<div>
         <h1>Products List:</h1>
+        <Pagination response={response}/>
         Loaded
         </div>,
         "allResultsNumber":getAllResultsNumber(response),
