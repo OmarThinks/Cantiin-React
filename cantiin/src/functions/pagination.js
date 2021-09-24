@@ -8,7 +8,7 @@ function getCurrentPagePaginationButton(currentUrl=window.location.href)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     return <li>
-        <button disabled>{currentPageNumber}</button>
+        <button>{currentPageNumber}</button>
     </li>;
 }
 
