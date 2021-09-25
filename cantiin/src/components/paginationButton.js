@@ -10,9 +10,8 @@ It must have one of these values
 
 
 2. link (str)  (default = "")
-
 - If link is passed, then there is a link, else, it is disabled
-
+- if type is snumber, then a link must be passed
 
 3. active (bool) (default=false)
 - if number, it could be active
@@ -33,11 +32,11 @@ class PaginationButton extends React.Component {
         let {type} = this.props;
         let {link = null} = this.props;
         let {active = false} = this.props;
-        //type, disabled=false, link=null, active=false
+
         if(link){var pageNumber = getUrlPage(link);}
         
-        console.log(`props is:`);
-        console.log(this.props);
+        /*console.log(`props is:`);
+        console.log(this.props);*/
 
 
         if(!type){throw("PaginationButton: type is required");}
@@ -45,8 +44,15 @@ class PaginationButton extends React.Component {
 
 
         if(!(["first","prev","number","next","last","dots"].includes(type)))
-        {throw('PaginationButton: type must must be one of these values: ["first","prev","number","next","last","dots"]');}
+        {throw('PaginationButton: type must be one of these values: ["first","prev","number","next","last","dots"]');}
         
+        if(type=="number")
+        {
+            if(!link){
+                throw('PaginationButton: type is number, so a link must be passed');
+            }
+        }
+
 
         
         if(active){return <li className="paginationListIndex">
@@ -84,6 +90,3 @@ class PaginationButton extends React.Component {
 }
 
 export default PaginationButton;
-
-
-
