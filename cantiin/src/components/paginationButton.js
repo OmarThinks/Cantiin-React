@@ -27,25 +27,22 @@ if not disabled, this link will not work
 
 
 
-
-
-
-
-
 class PaginationButton extends React.Component {
     render() { 
         let {type} = this.props.type;
-        let {disabled = false} = this.props.disabled;
-        let {link = null} = this.props.link;
-        let {active = false} = this.props.active;
+        let {disabled = false} = this.props;
+        let {link = null} = this.props;
+        let {active = false} = this.props;
         //type, disabled=false, link=null, active=false
         if(link){var number = getUrlPage(link);}
         
         console.log("type is");
         console.log(type);
 
-        assert(type in ["first","prev","number","next","last","dots"],
-        'type must must be one of these values: ["first","prev","number","next","last","dots"]');
+
+
+        if(!(["first","prev","number","next","last","dots"].includes(type)))
+        {throw('type must must be one of these values: ["first","prev","number","next","last","dots"]');}
         
         if(!disabled)
         {if(type!="dots")
