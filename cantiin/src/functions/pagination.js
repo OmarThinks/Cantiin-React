@@ -112,10 +112,10 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href)
     let linkMinusThree = "";
 
 
-    let firstButton =<PaginationButton type="number" link={linkFirst}/>;
-    let minusOneButton =<PaginationButton type="number" link={linkMinusOne}/>;
-    let minusTwoButton =<PaginationButton type="number" link={linkMinusTwo}/>;
-    let minusThreeButton =<PaginationButton type="number" link={linkMinusThree}/>;
+    let firstButton ="";
+    let minusOneButton ="";
+    let minusTwoButton ="";
+    let minusThreeButton ="";
     let dottedButton = "";
 
 
@@ -148,7 +148,6 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href)
     {
         dottedButton = <PaginationButton type="dotted"/>;
     }
-
 
 
     return <Fragment>

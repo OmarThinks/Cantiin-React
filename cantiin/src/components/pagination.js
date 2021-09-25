@@ -30,8 +30,8 @@ class Pagination extends Component {
         return <Fragment>
         <div className="pagination"> 
             {getFirstPagePaginationButton(this.state.currentUrl)}
-            {getPrevPagesPaginationButtons(this.state.currentUrl)}
             {getPrevPagePaginationButton(this.state.currentUrl)}
+            {getPrevPagesPaginationButtons(this.state.currentUrl)}
             
             {getCurrentPagePaginationButton(this.state.currentUrl)}
             
