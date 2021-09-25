@@ -104,8 +104,6 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href)
     let currentQueryParameters = getUrlQueryParameters(currentUrl);
 
 
-
-
     let linkFirst = "";
     let linkMinusOne = "";
     let linkMinusTwo = "";
@@ -169,35 +167,79 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href)
 
 function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPageNumber)
 {
+
     let currentPageNumber = getUrlPage(currentUrl);
     let currentPureUrl = getPureUrl(currentUrl);
     let currentQueryParameters = getUrlQueryParameters(currentUrl);
 
 
-    let linkLast = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":maxPageNumber});
-    let linkPlusOne = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":currentPageNumber+1});
-    let linkPlusTwo = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":currentPageNumber+2});
-    let linkPlusThree = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":currentPageNumber+3});
-        
+    let linkLast = "";
+    let linkPlusOne = "";
+    let linkPlusTwo = "";
+    let linkPlusThree = "";
 
 
-    let lastButton =<PaginationButton type="number" link={linkLast}/>;
-    let plusOneButton =<PaginationButton type="number" link={linkPlusOne}/>;
-    let plusTwoButton =<PaginationButton type="number" link={linkPlusTwo}/>;
-    let plusThreeButton =<PaginationButton type="number" link={linkPlusThree}/>;
-
+    let lastButton ="";
+    let plusOneButton ="";
+    let plusTwoButton ="";
+    let plusThreeButton ="";
+    let dottedButton = "";
+    
     let pagesDifference = maxPageNumber-currentPageNumber;
 
-    if (pagesDifference >= 0){return "";}
-    else if (pagesDifference >= 1){return plusOneButton;}
-    else if (pagesDifference >= 2){return plusTwoButton+
-        plusOneButton;}
-    else{return plusThreeButton+
-        plusTwoButton+plusOneButton;}
+
+    if(pagesDifference > 0)
+    {
+        linkLast = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":maxPageNumber});
+        lastButton =<PaginationButton type="number" link={linkLast}/>;
+    }
+    if(pagesDifference > 1)
+    {
+        linkPlusOne = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":currentPageNumber+1});
+            plusOneButton =<PaginationButton type="number" link={linkPlusOne}/>;
+
+    }
+    if(pagesDifference > 2)
+    {
+        linkPlusTwo = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":currentPageNumber+2});
+            plusTwoButton =<PaginationButton type="number" link={linkPlusTwo}/>;
+
+    }
+    if(pagesDifference > 3)
+    {
+        linkPlusThree = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":currentPageNumber+3});
+            plusThreeButton =<PaginationButton type="number" link={linkPlusThree}/>;
+    }
+    if(pagesDifference > 4)
+    {
+        dottedButton = <PaginationButton type="dotted"/>;
+    }
+
+
+    return <Fragment>
+        {plusOneButton}
+        {plusTwoButton}
+        {plusThreeButton}
+        {dottedButton}
+        {lastButton}
+    </Fragment>
+    ;
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
