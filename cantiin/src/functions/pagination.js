@@ -9,8 +9,7 @@ import PaginationButton from "../components/paginationButton";
 
 function getCurrentPagePaginationButton(currentUrl=window.location.href)
 {
-    return <PaginationButton type="number" active={true}/>
-
+    return <PaginationButton type="number" active={true} link={currentUrl}/>
 }
         
 function getPrevPagePaginationButton(currentUrl=window.location.href)

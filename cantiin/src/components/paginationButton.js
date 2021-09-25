@@ -45,9 +45,9 @@ class PaginationButton extends React.Component {
         if(!(["first","prev","number","next","last","dots"].includes(type)))
         {throw('PaginationButton: type must be one of these values: ["first","prev","number","next","last","dots"]');}
         
-        if(type=="number" && !link && !active)
+        if(type=="number" && !link)
         {
-                throw('PaginationButton: type is number, and it is not active, so a link must be passed');
+            throw('PaginationButton: type is number, so a link must be passed');
         }
 
 

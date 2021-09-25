@@ -36,7 +36,7 @@ test('components/paginationButton:validation', () => {
     } catch (error) {
         //console.log(error.toString());
         expect(error.toString()).toEqual(
-            'PaginationButton: type is number, and it is not active, so a link must be passed');
+            'PaginationButton: type is number, so a link must be passed');
     }
 
 
