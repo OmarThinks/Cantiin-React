@@ -32,7 +32,6 @@ function getFirstPagePaginationButton(currentUrl=window.location.href)
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber<=1)
     {return <PaginationButton type="first"/>;}
-
         
     let link = buildUrl(getPureUrl(currentUrl),
         {...getUrlQueryParameters(currentUrl),"page":1});
@@ -56,7 +55,6 @@ function getNextPagePaginationButton(currentUrl=window.location.href,maxPage)
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber>=maxPage)
     {return <PaginationButton type="next"/>;}
-
         
     let link = buildUrl(getPureUrl(currentUrl),
         {...getUrlQueryParameters(currentUrl),"page":currentPageNumber+1});
@@ -72,17 +70,12 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber>=maxPage)
-    {return <li>
-        <button disabled>{">>"}</button>
-    </li>}
-    
-    
-    return <li>
-        <a href={buildUrl(getPureUrl(currentUrl),
-    {...getUrlQueryParameters(currentUrl),"page":maxPage})}>
-            <button>{">>"}</button>
-        </a>
-    </li>;
+    {return <PaginationButton type="last"/>;}
+        
+    let link = buildUrl(getPureUrl(currentUrl),
+        {...getUrlQueryParameters(currentUrl),"page":maxPage});
+    return <PaginationButton type="last" link={link}/>
+
 }
 
 
