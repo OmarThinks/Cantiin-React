@@ -19,7 +19,7 @@ function getPrevPagePaginationButton(currentUrl=window.location.href)
     {return <PaginationButton type="prev"/>;}
     
     let link = buildUrl(getPureUrl(currentUrl),
-    {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1});
+        {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1});
     return <PaginationButton type="prev" link={link}/>
 }
 
@@ -35,7 +35,7 @@ function getFirstPagePaginationButton(currentUrl=window.location.href)
 
         
     let link = buildUrl(getPureUrl(currentUrl),
-    {...getUrlQueryParameters(currentUrl),"page":1});
+        {...getUrlQueryParameters(currentUrl),"page":1});
     return <PaginationButton type="first" link={link}/>
 }
 
@@ -55,18 +55,12 @@ function getNextPagePaginationButton(currentUrl=window.location.href,maxPage)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber>=maxPage)
-    {return <li>
-        <button disabled>{">"}</button>
-    </li>}
+    {return <PaginationButton type="next"/>;}
 
-    
-    return <li>
-        <a href={buildUrl(getPureUrl(currentUrl),
-            {...getUrlQueryParameters(currentUrl),
-            "page":currentPageNumber+1})}>
-            <button>{">"}</button>
-        </a>
-    </li>;
+        
+    let link = buildUrl(getPureUrl(currentUrl),
+        {...getUrlQueryParameters(currentUrl),"page":currentPageNumber+1});
+    return <PaginationButton type="next" link={link}/>
 }
 
 
