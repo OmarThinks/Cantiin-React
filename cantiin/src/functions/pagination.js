@@ -49,11 +49,10 @@ function getFirstPagePaginationButton(currentUrl=window.location.href)
 
 
 
-
-function getNextPagePaginationButton(currentUrl=window.location.href,maxPage)
+function getNextPagePaginationButton(currentUrl=window.location.href,maxPageNumber)
 {
     let currentPageNumber = getUrlPage(currentUrl);
-    if(currentPageNumber>=maxPage)
+    if(currentPageNumber>=maxPageNumber)
     {return <PaginationButton type="next"/>;}
         
     let link = buildUrl(getPureUrl(currentUrl),
@@ -66,14 +65,14 @@ function getNextPagePaginationButton(currentUrl=window.location.href,maxPage)
 
 
 
-function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
+function getLastPagePaginationButton(currentUrl=window.location.href,maxPageNumber)
 {
     let currentPageNumber = getUrlPage(currentUrl);
-    if(currentPageNumber>=maxPage)
+    if(currentPageNumber>=maxPageNumber)
     {return <PaginationButton type="last"/>;}
         
     let link = buildUrl(getPureUrl(currentUrl),
-        {...getUrlQueryParameters(currentUrl),"page":maxPage});
+        {...getUrlQueryParameters(currentUrl),"page":maxPageNumber});
     return <PaginationButton type="last" link={link}/>
 
 }
@@ -86,7 +85,7 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
 
 
 
-function getPrevPagesPaginationButtons(currentUrl=window.location.href,maxPage)
+function getPrevPagesPaginationButtons(currentUrl=window.location.href)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     let currentPureUrl = getPureUrl(currentUrl);
@@ -114,7 +113,6 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href,maxPage)
         minusOneButton;}
     else if (currentPageNumber >= 4){return minusThreeButton+
         minusTwoButton+minusOneButton;}
-    
 }
 
 
@@ -124,29 +122,38 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href,maxPage)
 
 
 
-function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPage)
+function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPageNumber)
 {
     let currentPageNumber = getUrlPage(currentUrl);
-    if(currentPageNumber>=maxPage)
-    {return <li>
-        <button disabled>{">>"}</button>
-    </li>}
-
+    let currentPureUrl = getPureUrl(currentUrl);
     let currentQueryParameters = getUrlQueryParameters(currentUrl);
-    currentQueryParameters["page"]= maxPage;
-    
-    let href = buildUrl(getPureUrl(currentUrl),currentQueryParameters);
-    
-    return <li>
-        <a href={href}>
-            <button>{">>"}</button>
-        </a>
-    </li>;
+
+
+    let linkLast = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":maxPageNumber});
+    let linkPlusOne = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":currentPageNumber+1});
+    let linkPlusTwo = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":currentPageNumber+2});
+    let linkPlusThree = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":currentPageNumber+3});
+        
+
+
+    let lastButton =<PaginationButton type="number" link={linkLast}/>;
+    let plusOneButton =<PaginationButton type="number" link={linkPlusOne}/>;
+    let plusTwoButton =<PaginationButton type="number" link={linkPlusTwo}/>;
+    let plusThreeButton =<PaginationButton type="number" link={linkPlusThree}/>;
+
+    let pagesDifference = maxPageNumber-currentPageNumber;
+
+    if (pagesDifference >= 0){return "";}
+    else if (pagesDifference >= 1){return plusOneButton;}
+    else if (pagesDifference >= 2){return plusTwoButton+
+        plusOneButton;}
+    else{return plusThreeButton+
+        plusTwoButton+plusOneButton;}
 }
-
-
-
-
 
 
 
