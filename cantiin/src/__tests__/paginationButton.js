@@ -1,21 +1,20 @@
-import PaginationButton from "../components/paginatioButton";
-
-
+import PaginationButton from "../components/paginationButton";
+import renderer from 'react-test-renderer';
 
 test('components/paginationButton', () => {
 
+    //const component = renderer.create(<PaginationButton />);
+    
     try {
-        console.log((<PaginationButton/>).toString());
+        console.log("This is the button");
+        console.log(renderer.create(<PaginationButton/>));
         console.log("noError");
 
     } catch (error) {
-        console.log(error);
-        console.log("noError");
+        expect(error.toString()).toEqual(
+            "TypeError: Cannot destructure property 'type' of 'this.props.type' as it is undefined.");
+        console.log("Error is here");
     }
-
-    expect((<PaginationButton/>).toString())
-    .toEqual((<li>
-    </li>).toString());
 
 });
 
