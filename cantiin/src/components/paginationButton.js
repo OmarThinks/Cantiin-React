@@ -1,6 +1,5 @@
 import { getUrlPage } from '../functions/urls';
 import React, { Component } from 'react';
-import renderer from 'react-test-renderer';
 var assert = require('assert');
 
 /* it takes these inputs

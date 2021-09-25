@@ -4,10 +4,6 @@ import renderer from 'react-test-renderer';
 
 
 
-
-
-
-
 test('components/paginationButton:validation', () => {
 
     //const component = renderer.create(<PaginationButton />);
@@ -47,6 +43,5 @@ test('components/paginationButton:validation', () => {
 
 
 });
-
 
 
