@@ -19,5 +19,10 @@ test('js object get with default value', () => {
 
 
 
-
-
+test('js in', () => {
+    console.log();
+    
+    expect(["a","b","c"].includes("a")).toEqual(true);
+    expect(["a","b","c"].includes("z")).toEqual(false);
+    
+});

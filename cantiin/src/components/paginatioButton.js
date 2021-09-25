@@ -1,4 +1,5 @@
 import { getUrlPage } from '../functions/urls';
+import React, { Component } from 'react';
 var assert = require('assert');
 
 /* it takes these inputs
@@ -17,6 +18,69 @@ if not disabled, this link will not work
 - if active it will be auto disabled
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+class PaginationButton extends React.Component {
+    render() { 
+        let {type} = this.props.type;
+        let {disabled = false} = this.props.disabled;
+        let {link = null} = this.props.link;
+        let {active = false} = this.props.active;
+        //type, disabled=false, link=null, active=false
+        if(link){var number = getUrlPage(link);}
+        
+        console.log("type is");
+        console.log(type);
+
+        assert(type in ["first","prev","number","next","last","dots"],
+        'type must must be one of these values: ["first","prev","number","next","last","dots"]');
+        
+        if(!disabled)
+        {if(type!="dots")
+            {assert(link!=null,"this is not disabled, so a link must be passed");}
+        }
+    
+        if(active){return <li><button disabled>{number}</button></li>;}
+    
+        let buttonText="";
+    
+        if      (type=="first"){buttonText="<<";}
+        else if (type=="prev"){buttonText="<";}
+        else if (type=="number"){buttonText="<";}
+        else if (type=="next"){buttonText="<";}
+        else if (type=="last"){buttonText="<";}
+        else {return <li><button disabled>...</button></li>;} //type = dots
+    
+    
+    
+        if(disabled){
+            return <li>
+                <button disabled>{buttonText}</button>
+            </li>;
+        }
+        else{
+            return <li>
+                <a href={link}>
+                    <button>{buttonText}</button>
+                </a>
+            </li>;
+        }
+    }
+}
+ 
+export default PaginationButton;
+/*
 
 const PaginationButton = (props)=>
 {
@@ -67,6 +131,6 @@ const PaginationButton = (props)=>
 export default PaginationButton;
 
 
-
+*/
 
 
