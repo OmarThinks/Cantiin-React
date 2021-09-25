@@ -10,18 +10,6 @@ class ProductsList extends Component {
     state={
         "loaded":false,
         "items":[],
-        "rendered":<div>
-            <h1>Products List:</h1>
-            <p>Loading...</p>
-        </div>,
-        "allResultsNumber":null,
-        "currentPage":null,
-        "currentResponsePage":null,
-        "maxPage":null,
-        "nextPage":null,
-        "previousPage":null,
-
-
         "response":null
     }
 
