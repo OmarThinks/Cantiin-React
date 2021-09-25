@@ -27,6 +27,7 @@ class Pagination extends Component {
         console.log(`State is:`);
         console.log( this.state);
         return <div className="pagination"> 
+            {getFirstPagePaginationButton(this.state.currentUrl)}
             {getPrevPagePaginationButton(this.state.currentUrl)}
             {getCurrentPagePaginationButton(this.state.currentUrl)}
             {getNextPagePaginationButton(
