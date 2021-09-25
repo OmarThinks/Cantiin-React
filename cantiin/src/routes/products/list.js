@@ -19,7 +19,10 @@ class ProductsList extends Component {
         "currentResponsePage":null,
         "maxPage":null,
         "nextPage":null,
-        "previousPage":null
+        "previousPage":null,
+
+
+        "response":null
     }
 
 
@@ -30,22 +33,12 @@ class ProductsList extends Component {
         console.log(response);
         
         this.setState(
-    {
-        "loaded":true,
-        "items":getItemsList(response),
-        "rendered":<div>
-        <h1>Products List:</h1>
-        <Pagination response={response}/>
-        Loaded
-        </div>,
-        "allResultsNumber":getAllResultsNumber(response),
-        "currentPage":getCurrentWindowPage(),
-        "currentResponsePage":getCurrentResponsePage(response),
-        "maxPage":getMaxPage(response),
-        "nextPage":getApiResponsePage(response, true),
-        "previousPage":getApiResponsePage(response, false)
- });
- console.log(this.state);
+        {
+            "loaded":true,
+            "items":getItemsList(response),
+            "response": response
+        });
+        console.log(this.state);
     }
 
     /*Life Cycle*/
@@ -61,7 +54,20 @@ class ProductsList extends Component {
 
 
     render() { 
-        return this.state.rendered;
+
+        if (!this.state.loaded)
+        {return <div>
+            <h1>Products List:</h1>
+            <div>Loading...</div>
+        </div>;}
+
+
+
+        return <div>
+        <h1>Products List:</h1>
+        <Pagination response={this.state.response}/>
+        Loaded
+        </div>;
     }
 }
  

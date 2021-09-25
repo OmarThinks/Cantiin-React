@@ -14,7 +14,7 @@ import {getCurrentPagePaginationButton,getPrevPagePaginationButton,
 
 class Pagination extends Component {
     constructor(props) {
-        console.log("This is props");
+        //console.log("This is props");
         super(props);
         let response = props.response;
         this.state = 
@@ -25,8 +25,8 @@ class Pagination extends Component {
     };
     }
     render() {
-        console.log(`State is:`);
-        console.log( this.state);
+        //console.log(`State is:`);
+        //console.log( this.state);
         return <Fragment>
         <div className="pagination"> 
             {getFirstPagePaginationButton(this.state.currentUrl)}

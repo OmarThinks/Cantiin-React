@@ -17,16 +17,16 @@ function getCurrentPagePaginationButton(currentUrl=window.location.href)
 
 function getPrevPagePaginationButton(currentUrl=window.location.href)
 {
-    console.log(`currentUrl: ${currentUrl}`);
+    //console.log(`currentUrl: ${currentUrl}`);
     
     let currentPageNumber = getUrlPage(currentUrl);
 
-    console.log(`currentUrl: ${currentUrl}`);
-    console.log(`currentPageNumber: ${currentPageNumber}`);
+    //console.log(`currentUrl: ${currentUrl}`);
+    //console.log(`currentPageNumber: ${currentPageNumber}`);
 
     if(currentPageNumber<=1)
     {
-        console.log("it is less than or equals 1");
+        //console.log("it is less than or equals 1");
         return <PaginationButton type="prev"/>;
     }
     
@@ -219,7 +219,6 @@ function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPageNu
         dottedButton = <PaginationButton type="dotted"/>;
     }
 
-
     return <Fragment>
         {plusOneButton}
         {plusTwoButton}
@@ -228,18 +227,6 @@ function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPageNu
         {lastButton}
     </Fragment>
     ;
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
