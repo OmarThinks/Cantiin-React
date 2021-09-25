@@ -58,7 +58,8 @@ class PaginationButton extends React.Component {
                 }
             }
         }
-        if(active){return <li><button disabled>{pageNumber}</button></li>;}
+        if(active){return <li className="paginationListIndex">
+            <button className="paginationButton paginationButton-disabled" disabled>{pageNumber}</button></li>;}
     
         let buttonText="";
     
@@ -67,19 +68,24 @@ class PaginationButton extends React.Component {
         else if (type=="number"){buttonText="<";}
         else if (type=="next"){buttonText="<";}
         else if (type=="last"){buttonText="<";}
-        else {return <li><button disabled>...</button></li>;} //type = dots
+        else {return <li className="paginationListIndex">
+            <button
+            className="paginationButton paginationButton-disabled"
+            disabled>...</button></li>;} //type = dots
     
     
     
         if(!link){
-            return <li>
-                <button disabled>{buttonText}</button>
+            return <li className="paginationListIndex">
+                <button 
+                className="paginationButton paginationButton-disabled"
+                disabled>{buttonText}</button>
             </li>;
         }
         else{
-            return <li>
-                <a href={link}>
-                    <button>{buttonText}</button>
+            return <li className="paginationListIndex">
+                <a className="paginationLink" href={link}>
+                    <button className="paginationButton">{buttonText}</button>
                 </a>
             </li>;
         }
