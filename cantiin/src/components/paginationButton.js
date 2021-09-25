@@ -9,12 +9,12 @@ It must have one of these values
 ["first","prev","number","next","last","dots"]
 
 
-3. link (str)  (default = "")
+2. link (str)  (default = "")
 
 - If link is passed, then there is a link, else, it is disabled
-- if type != dots, then a link must be passed
 
-4. active (bool) (default=false)
+
+3. active (bool) (default=false)
 - if number, it could be active
 - if active it will be auto disabled
 
@@ -31,7 +31,6 @@ class PaginationButton extends React.Component {
     render() { 
 
         let {type} = this.props;
-        let {disabled = false} = this.props;
         let {link = null} = this.props;
         let {active = false} = this.props;
         //type, disabled=false, link=null, active=false
@@ -48,18 +47,10 @@ class PaginationButton extends React.Component {
         if(!(["first","prev","number","next","last","dots"].includes(type)))
         {throw('PaginationButton: type must must be one of these values: ["first","prev","number","next","last","dots"]');}
         
-        if(!disabled)
-        {if(type!="dots")
-            {
-                if(link==null)
-                {
-                    throw(
-                    "PaginationButton: is not disabled, so a link must be passed");
-                }
-            }
-        }
+
+        
         if(active){return <li className="paginationListIndex">
-            <button className="paginationButton paginationButton-disabled" disabled>{pageNumber}</button></li>;}
+            <button className="PaginationButton PaginationButton-disabled PaginationButton-active" disabled>{pageNumber}</button></li>;}
     
         let buttonText="";
     
@@ -70,7 +61,7 @@ class PaginationButton extends React.Component {
         else if (type=="last"){buttonText="<";}
         else {return <li className="paginationListIndex">
             <button
-            className="paginationButton paginationButton-disabled"
+            className="PaginationButton PaginationButton-disabled"
             disabled>...</button></li>;} //type = dots
     
     
@@ -78,14 +69,14 @@ class PaginationButton extends React.Component {
         if(!link){
             return <li className="paginationListIndex">
                 <button 
-                className="paginationButton paginationButton-disabled"
+                className="PaginationButton PaginationButton-disabled"
                 disabled>{buttonText}</button>
             </li>;
         }
         else{
             return <li className="paginationListIndex">
                 <a className="paginationLink" href={link}>
-                    <button className="paginationButton">{buttonText}</button>
+                    <button className="PaginationButton">{buttonText}</button>
                 </a>
             </li>;
         }
