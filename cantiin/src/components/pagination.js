@@ -29,6 +29,8 @@ class Pagination extends Component {
         return <div className="pagination"> 
             {getPrevPagePaginationButton(this.state.currentUrl)}
             {getCurrentPagePaginationButton(this.state.currentUrl)}
+            {getNextPagePaginationButton(
+                this.state.currentUrl, this.state.maxPageNumber)}
         
       </div>  
 
