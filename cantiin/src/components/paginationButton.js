@@ -59,9 +59,9 @@ class PaginationButton extends React.Component {
     
         if      (type=="first"){buttonText="<<";}
         else if (type=="prev"){buttonText="<";}
-        else if (type=="number"){buttonText="<";}
-        else if (type=="next"){buttonText="<";}
-        else if (type=="last"){buttonText="<";}
+        else if (type=="number"){buttonText=pageNumber;}
+        else if (type=="next"){buttonText=">";}
+        else if (type=="last"){buttonText=">>";}
         else {return <li className="paginationListIndex">
             <button
             className="PaginationButton PaginationButton-disabled"

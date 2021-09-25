@@ -3,8 +3,11 @@ import {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
     getUrlPage} from "../functions/urls";
 import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
         getApiResponsePage,getMaxPage} from '../functions/fetching/list';
-import {getCurrentPagePaginationButton} from '../functions/pagination';
-    
+
+import {getCurrentPagePaginationButton,getPrevPagePaginationButton,
+    getFirstPagePaginationButton,getNextPagePaginationButton,
+    getLastPagePaginationButton, getPrevPagesPaginationButtons, getNextPagesPaginationButtons} from '../functions/pagination';
+
 
 
 
@@ -16,57 +19,22 @@ class Pagination extends Component {
         this.state = 
     { 
         "response":response,
-        "currentPage":getCurrentWindowPage(),
-        "currentResponsePage":getCurrentResponsePage(response),
-        "maxPage":getMaxPage(response),
-        "nextPage":getApiResponsePage(response, true),
-        "previousPage":getApiResponsePage(response, false)
+        "currentUrl":window.location.href,
+        "maxPageNumber":getMaxPage(response),
     };
     }
-    render() { 
-
-        let minPageButton = "";
-        let maxPageButton = "";
-        let currentPageButton = "";
-        let nextPageButton = "";
-        let prevPageButton = "";
-
-        if(this.state.previousPage)
-        {
-            prevPageButton=
-            <a href={this.state.previousPage}>
-                <button>
-                {"<"}
-                </button>
-                </a>; 
-        }
-        else{
-            prevPageButton = <button disabled> {"<"} </button>;
-        }
-        if(this.state.nextPage)
-        {
-            nextPageButton=
-            <a href={this.state.nextPage}>
-                <button>
-                {">"}
-                </button>
-            </a>; 
-        }
-        else{
-            nextPageButton = <button disabled> {">"} </button>;
-        }
+    render() {
+        console.log(`State is:`);
+        console.log( this.state);
+        return <div className="pagination"> 
+            {getPrevPagePaginationButton(this.state.currentUrl)}
+            {getCurrentPagePaginationButton(this.state.currentUrl)}
         
+      </div>  
 
-
-
-        return ( <div>
-            This is pagination
-        <ul>
-        <li>{prevPageButton}</li>
-        <li>{nextPageButton}</li>
-        </ul>
-            </div> );
     }
+    //{getNextPagePaginationButton(this.state.currentUrl, this.state.maxPageNumber)}
+
 }
  
 export default Pagination;

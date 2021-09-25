@@ -11,12 +11,23 @@ function getCurrentPagePaginationButton(currentUrl=window.location.href)
 {
     return <PaginationButton type="number" active={true} link={currentUrl}/>
 }
-        
+
+
+
 function getPrevPagePaginationButton(currentUrl=window.location.href)
 {
+    console.log(`currentUrl: ${currentUrl}`);
+    
     let currentPageNumber = getUrlPage(currentUrl);
+
+    console.log(`currentUrl: ${currentUrl}`);
+    console.log(`currentPageNumber: ${currentPageNumber}`);
+
     if(currentPageNumber<=1)
-    {return <PaginationButton type="prev"/>;}
+    {
+        console.log("it is less than or equals 1");
+        return <PaginationButton type="prev"/>;
+    }
     
     let link = buildUrl(getPureUrl(currentUrl),
         {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1});
