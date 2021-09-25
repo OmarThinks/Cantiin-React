@@ -31,17 +31,12 @@ function getFirstPagePaginationButton(currentUrl=window.location.href)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber<=1)
-    {return <li>
-        <button disabled>{"<<"}</button>
-    </li>}
+    {return <PaginationButton type="first"/>;}
 
         
-    return <li>
-        <a href={buildUrl(getPureUrl(currentUrl),
-    {...getUrlQueryParameters(currentUrl),"page":1})}>
-            <button>{"<<"}</button>
-        </a>
-    </li>;
+    let link = buildUrl(getPureUrl(currentUrl),
+    {...getUrlQueryParameters(currentUrl),"page":1});
+    return <PaginationButton type="first" link={link}/>
 }
 
 
