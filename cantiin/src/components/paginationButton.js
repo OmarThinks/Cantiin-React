@@ -10,7 +10,7 @@ It must have one of these values
 
 2. link (str)  (default = "")
 - If link is passed, then there is a link, else, it is disabled
-- if type is snumber, then a link must be passed
+- if type is number and not active, then a link must be passed
 
 3. active (bool) (default=false)
 - if number, it could be active
@@ -45,11 +45,9 @@ class PaginationButton extends React.Component {
         if(!(["first","prev","number","next","last","dots"].includes(type)))
         {throw('PaginationButton: type must be one of these values: ["first","prev","number","next","last","dots"]');}
         
-        if(type=="number")
+        if(type=="number" && !link && !active)
         {
-            if(!link){
-                throw('PaginationButton: type is number, so a link must be passed');
-            }
+                throw('PaginationButton: type is number, and it is not active, so a link must be passed');
         }
 
 
