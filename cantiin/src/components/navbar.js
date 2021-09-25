@@ -45,7 +45,7 @@ const NavBar = (props) => {
                         Products
                         </a>
                     </li>
-                    {login_partial}
+                    { login_partial }
                 </ul>
         </div>
     )

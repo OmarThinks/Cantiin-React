@@ -88,44 +88,33 @@ function getLastPagePaginationButton(currentUrl=window.location.href,maxPage)
 
 function getPrevPagesPaginationButtons(currentUrl=window.location.href,maxPage)
 {
-
     let currentPageNumber = getUrlPage(currentUrl);
+    let currentPureUrl = getPureUrl(currentUrl);
+    let currentQueryParameters = getUrlQueryParameters(currentUrl);
 
-    let firstButton =<li>
-    <a href={buildUrl(getPureUrl(currentUrl),
-        {...getUrlQueryParameters(currentUrl),"page":1})}>
-            <button>{"<"}</button>
-        </a>
-    </li>;
-    
-    let prev1Button =<li>
-    <a href={buildUrl(getPureUrl(currentUrl),
-        {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1})}>
-            <button>{"<"}</button>
-        </a>
-    </li>;
-    
-    let prev2Button =<li>
-    <a href={buildUrl(getPureUrl(currentUrl),
-        {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1})}>
-            <button>{"<"}</button>
-        </a>
-    </li>;
+    let linkFirst = buildUrl(currentPureUrl,{...currentQueryParameters,"page":1});
+    let linkMinusOne = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":currentPageNumber-1});
+    let linkMinusTwo = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":currentPageNumber-2});
+    let linkMinusThree = buildUrl(currentPureUrl,
+        {...currentQueryParameters,"page":currentPageNumber-3});
+        
 
 
+    let firstButton =<PaginationButton type="number" link={linkFirst}/>;
+    let minusOneButton =<PaginationButton type="number" link={linkMinusOne}/>;
+    let minusTwoButton =<PaginationButton type="number" link={linkMinusTwo}/>;
+    let minusThreeButton =<PaginationButton type="number" link={linkMinusThree}/>;
 
-    if(currentPageNumber<=1)
-    {return <li>
-        <button disabled>{"<"}</button>
-    </li>}
+
+    if (currentPageNumber >= 1){return "";}
+    else if (currentPageNumber >= 2){return minusOneButton;}
+    else if (currentPageNumber >= 3){return minusTwoButton+
+        minusOneButton;}
+    else if (currentPageNumber >= 4){return minusThreeButton+
+        minusTwoButton+minusOneButton;}
     
-    
-    return <li>
-        <a href={buildUrl(getPureUrl(currentUrl),
-    {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1})}>
-            <button>{"<"}</button>
-        </a>
-    </li>;
 }
 
 
@@ -172,4 +161,4 @@ function getNextPagesPaginationButtons(currentUrl=window.location.href,maxPage)
 
 export {getCurrentPagePaginationButton,getPrevPagePaginationButton,
     getFirstPagePaginationButton,getNextPagePaginationButton,
-    getLastPagePaginationButton};
+    getLastPagePaginationButton, getPrevPagesPaginationButtons, getNextPagesPaginationButtons};
