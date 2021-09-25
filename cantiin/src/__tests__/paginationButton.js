@@ -10,22 +10,36 @@ test('components/paginationButton', () => {
         expect(true).toEqual(false);
 
     } catch (error) {
+        console.log(error.toString());
         expect(error.toString()).toEqual(
-            "TypeError: Cannot destructure property 'type' of 'this.props.type' as it is undefined.");
+            "PaginationButton: type is required");
     }
 
+    /*TEST: Strange Type*/
     try {
         renderer.create(<PaginationButton type="strange"/>);
         expect(true).toEqual(false);
 
     } catch (error) {
-        console.log(error.toString());
+        //console.log(error.toString());
         expect(error.toString()).toEqual(
-            'type must must be one of these values: ["first","prev","number","next","last","dots"]');
+            'PaginationButton: type must must be one of these values: ["first","prev","number","next","last","dots"]');
         console.log("Error is here");
     }
 
+    /*TEST: Active  without link*/
+    try {
+        renderer.create(<PaginationButton type="number"/>);
+        expect(true).toEqual(false);
+    } catch (error) {
+        //console.log(error.toString());
+        expect(error.toString()).toEqual(
+            'PaginationButton: is not disabled, so a link must be passed');
+    }
+
     
+
+
 
 
 
