@@ -16,17 +16,11 @@ function getPrevPagePaginationButton(currentUrl=window.location.href)
 {
     let currentPageNumber = getUrlPage(currentUrl);
     if(currentPageNumber<=1)
-    {return <li>
-        <button disabled>{"<"}</button>
-    </li>}
+    {return <PaginationButton type="prev"/>;}
     
-    
-    return <li>
-        <a href={buildUrl(getPureUrl(currentUrl),
-    {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1})}>
-            <button>{"<"}</button>
-        </a>
-    </li>;
+    let link = buildUrl(getPureUrl(currentUrl),
+    {...getUrlQueryParameters(currentUrl),"page":currentPageNumber-1});
+    return <PaginationButton type="prev" link={link}/>
 }
 
         
