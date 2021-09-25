@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
 import {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
     getUrlPage} from "../functions/urls";
 import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
@@ -26,19 +27,24 @@ class Pagination extends Component {
     render() {
         console.log(`State is:`);
         console.log( this.state);
-        return <div className="pagination"> 
+        return <Fragment>
+        <div className="pagination"> 
             {getFirstPagePaginationButton(this.state.currentUrl)}
+            {getPrevPagesPaginationButtons(this.state.currentUrl)}
             {getPrevPagePaginationButton(this.state.currentUrl)}
+            
             {getCurrentPagePaginationButton(this.state.currentUrl)}
+            
             {getNextPagePaginationButton(
+                this.state.currentUrl, this.state.maxPageNumber)}
+            {getNextPagesPaginationButtons(
                 this.state.currentUrl, this.state.maxPageNumber)}
             {getLastPagePaginationButton(
                 this.state.currentUrl, this.state.maxPageNumber)}
         
       </div>  
-
+    </Fragment>;
     }
-    //{getNextPagePaginationButton(this.state.currentUrl, this.state.maxPageNumber)}
 
 }
  

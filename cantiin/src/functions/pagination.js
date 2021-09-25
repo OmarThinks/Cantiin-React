@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
     getUrlPage} from "../functions/urls";
 import {getItemsList, getAllResultsNumber, getCurrentWindowPage,getCurrentResponsePage,
@@ -102,28 +103,62 @@ function getPrevPagesPaginationButtons(currentUrl=window.location.href)
     let currentPureUrl = getPureUrl(currentUrl);
     let currentQueryParameters = getUrlQueryParameters(currentUrl);
 
-    let linkFirst = buildUrl(currentPureUrl,{...currentQueryParameters,"page":1});
-    let linkMinusOne = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":currentPageNumber-1});
-    let linkMinusTwo = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":currentPageNumber-2});
-    let linkMinusThree = buildUrl(currentPureUrl,
-        {...currentQueryParameters,"page":currentPageNumber-3});
-        
+
+
+
+    let linkFirst = "";
+    let linkMinusOne = "";
+    let linkMinusTwo = "";
+    let linkMinusThree = "";
 
 
     let firstButton =<PaginationButton type="number" link={linkFirst}/>;
     let minusOneButton =<PaginationButton type="number" link={linkMinusOne}/>;
     let minusTwoButton =<PaginationButton type="number" link={linkMinusTwo}/>;
     let minusThreeButton =<PaginationButton type="number" link={linkMinusThree}/>;
+    let dottedButton = "";
 
 
-    if (currentPageNumber >= 1){return "";}
-    else if (currentPageNumber >= 2){return minusOneButton;}
-    else if (currentPageNumber >= 3){return minusTwoButton+
-        minusOneButton;}
-    else if (currentPageNumber >= 4){return minusThreeButton+
-        minusTwoButton+minusOneButton;}
+    if(currentPageNumber > 1)
+    {
+        linkFirst = buildUrl(currentPureUrl,{...currentQueryParameters,"page":1});
+        firstButton =<PaginationButton type="number" link={linkFirst}/>;
+    }
+    if(currentPageNumber > 2)
+    {
+        linkMinusOne = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":currentPageNumber-1});
+        minusOneButton =<PaginationButton type="number" link={linkMinusOne}/>;
+
+    }
+    if(currentPageNumber > 3)
+    {
+        linkMinusTwo = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":currentPageNumber-2});
+        minusTwoButton =<PaginationButton type="number" link={linkMinusTwo}/>;
+
+    }
+    if(currentPageNumber > 4)
+    {
+        linkMinusThree = buildUrl(currentPureUrl,
+            {...currentQueryParameters,"page":currentPageNumber-3});
+        minusThreeButton =<PaginationButton type="number" link={linkMinusThree}/>;
+    }
+    if(currentPageNumber > 5)
+    {
+        dottedButton = <PaginationButton type="dotted"/>;
+    }
+
+
+
+    return <Fragment>
+        {firstButton}
+        {dottedButton}
+        {minusThreeButton}
+        {minusTwoButton}
+        {minusOneButton}
+    </Fragment>
+    ;
 }
 
 

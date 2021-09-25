@@ -34,8 +34,8 @@ class PaginationButton extends React.Component {
 
         if(link){var pageNumber = getUrlPage(link);}
         
-        /*console.log(`props is:`);
-        console.log(this.props);*/
+        console.log(`props is:`);
+        console.log(this.props);
 
 
         if(!type){throw("PaginationButton: type is required");}
@@ -45,9 +45,10 @@ class PaginationButton extends React.Component {
         if(!(["first","prev","number","next","last","dots"].includes(type)))
         {throw('PaginationButton: type must be one of these values: ["first","prev","number","next","last","dots"]');}
         
-        if(type=="number" && !link)
+        if(type=="number")
         {
-            throw('PaginationButton: type is number, so a link must be passed');
+            if(link==null)
+            {throw('PaginationButton: type is number, so a link must be passed');}
         }
 
 
