@@ -133,5 +133,30 @@ html{
 }
 
 
-
+/* Product List*/
 .ProductsList{margin: 0;}
+
+
+
+
+/* Product Card */
+
+
+
+
+.productCard-productName { grid-area: header; }
+.productCard-productInStock { grid-area: main; }
+.productCard-productPrice { grid-area: menu; }
+
+
+
+
+
+.productCard {
+    border:solid black 1px;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    'header header header header header header'
+    'menu menu menu main main main'
+  }
