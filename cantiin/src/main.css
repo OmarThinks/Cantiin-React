@@ -137,7 +137,6 @@ html{
 /* Product List*/
 .ProductsList{
     margin: 0;
-    padding-bottom: 2em;
     padding-left: 2em;
     padding-right: 2em;
 }
@@ -164,5 +163,14 @@ html{
     display: grid;
     grid-template-areas:
     'productCard-productName productCard-productName'
-    'productCard-productPrice productCard-productInStock'
+    'productCard-productPrice productCard-productInStock';
   }
+
+
+.productCardContainer{
+    padding-bottom: 1em;
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+

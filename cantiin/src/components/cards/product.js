@@ -16,10 +16,12 @@ class ProductCard extends Component {
             inStockText = "In Stock"; 
 
         }
-        return <li className={productCardClassName}>
-            <div className="productCard-productName">{this.state.product.name}</div>
-            <div className="productCard-productInStock">{inStockText}</div>
-            <div className="productCard-productPrice">${this.state.product.price}</div>
+        return <li className="productCardContainer">
+            <div className={productCardClassName}>
+                <div className="productCard-productName">{this.state.product.name}</div>
+                <div className="productCard-productInStock">{inStockText}</div>
+                <div className="productCard-productPrice">${this.state.product.price}</div>
+            </div>
         </li>;
     }
 }
