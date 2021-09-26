@@ -174,3 +174,23 @@ html{
 }
 
 
+.productCardInStock{
+    background-color: lightgreen;
+}
+
+.productCardOutOfStock{
+    background-color: pink;
+}
+
+.productCard-productInStock-In
+{
+    color:darkgreen;
+    text-shadow: lime 1px 1px 1px;
+}
+
+
+.productCard-productInStock-Out
+{
+    color:darkred;
+    text-shadow: red 1px 1px 1px;
+}
