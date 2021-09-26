@@ -28,7 +28,7 @@ class Pagination extends Component {
         //console.log(`State is:`);
         //console.log( this.state);
         return <Fragment>
-        <div className="pagination"> 
+        <ul className="pagination"> 
             {getFirstPagePaginationButton(this.state.currentUrl)}
             {getPrevPagePaginationButton(this.state.currentUrl)}
             {getPrevPagesPaginationButtons(this.state.currentUrl)}
@@ -42,7 +42,7 @@ class Pagination extends Component {
             {getLastPagePaginationButton(
                 this.state.currentUrl, this.state.maxPageNumber)}
         
-      </div>  
+      </ul>  
     </Fragment>;
     }
 
