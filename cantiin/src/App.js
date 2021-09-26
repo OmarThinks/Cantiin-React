@@ -15,8 +15,10 @@ function App() {
     <BrowserRouter>
         <div className="App">
           <NavBar isLoggedIn={false}/>
-            <Route exact path="/" component={Home} />
-            <Route path="/products" component={ProductsList} />
+            <div className="content">
+              <Route exact path="/" component={Home} />
+              <Route path="/products" component={ProductsList} />
+            </div>
         </div>
       </BrowserRouter>
 

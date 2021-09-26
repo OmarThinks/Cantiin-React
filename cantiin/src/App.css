@@ -1,6 +1,25 @@
 .App {
 }
 
+h1{
+  font-size: 2.5em;
+}
+
+h2{
+  font-size: 2.2em;
+}
+
+p{
+  font-size: 1.5em;
+}
+
+.content{
+  padding: 0 1.2em;
+}
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
