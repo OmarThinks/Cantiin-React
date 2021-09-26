@@ -8,24 +8,30 @@ html, body{padding: 0px; margin: 0px;}
 
 
 .navBarDiv
-{margin: 0px;padding: 0px;}
+{
+    margin: 0px;padding: 0px;
+    display: block;
+}
 
 
 .navBarList
 {
     margin: 0px;padding: 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
     list-style-position: inside;
     list-style-type: none;
+    display: inline-block;
+}
+
+
+.navBarList-Right
+{
+    float: right;
 }
 
 
 
 .navBarList-Index{
-    float: left;
+    display: inline;
 }
 
 
