@@ -40,11 +40,6 @@ const NavBar = (props) => {
         login_partial= <Fragment>
         <NavBarLi text="Login" link={settings.frontend_urls.auth.login}/>
         <NavBarLi text="Sign Up" link={settings.frontend_urls.auth.signup}/>
-        <li className="navBarList-Index">
-        <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.signup}>
-        Sign Up
-        </a>
-    </li>
     </Fragment>
     ;
         
