@@ -1,1 +1,8 @@
-*{background-color: aqua;}
+html, body{padding: 0px; margin: 0px;}
+.App{
+    background-color: #eeeeee;
+    min-height: 100vh;
+    margin: 0px;
+}
+
+
