@@ -57,10 +57,9 @@ class ProductsList extends Component {
         return <div>
         <h1>Products List:</h1>
         <Pagination response={this.state.response}/>
-        <ul>
+        <ul className="ProductsList">
             {productsList}
         </ul>
-        Loaded
         </div>;
     }
 }

@@ -1,6 +1,9 @@
 *{transition: background-color .5s, color .5s;}
 
 html, body{padding: 0px; margin: 0px;}
+html{
+    height: 100vh;
+}
 
 .App{
     background-color: #eeeeee;
@@ -128,3 +131,7 @@ html, body{padding: 0px; margin: 0px;}
     cursor: auto;
     background-color: transparent;
 }
+
+
+
+.ProductsList{margin: 0;}
