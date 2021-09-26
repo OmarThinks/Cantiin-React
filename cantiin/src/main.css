@@ -87,6 +87,7 @@ html{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-left: 2em;
 }
 
 
@@ -134,7 +135,12 @@ html{
 
 
 /* Product List*/
-.ProductsList{margin: 0;}
+.ProductsList{
+    margin: 0;
+    padding-bottom: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
 
 
 
@@ -144,9 +150,9 @@ html{
 
 
 
-.productCard-productName { grid-area: header; }
-.productCard-productInStock { grid-area: main; }
-.productCard-productPrice { grid-area: menu; }
+.productCard-productName { grid-area: productCard-productName; }
+.productCard-productPrice { grid-area: productCard-productPrice; }
+.productCard-productInStock { grid-area: productCard-productInStock; }
 
 
 
@@ -157,6 +163,6 @@ html{
     width: 100%;
     display: grid;
     grid-template-areas:
-    'header header header header header header'
-    'menu menu menu main main main'
+    'productCard-productName productCard-productName'
+    'productCard-productPrice productCard-productInStock'
   }
