@@ -91,7 +91,7 @@ This is the second page:
 
 # E) Backend:
 
-
+This is the backend that this application communicates with: https://cantiin.com/api/
 
 <img src="images/backend.gif">
 
