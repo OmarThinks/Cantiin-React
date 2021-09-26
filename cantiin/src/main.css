@@ -55,6 +55,7 @@ html, body{padding: 0px; margin: 0px;}
 {
     /*Surroundings*/
     height: 2.0em;
+    max-height: 2em;
     margin: 0px;
     padding: 0 .4em;
     border-width: 0px;
@@ -68,6 +69,7 @@ html, body{padding: 0px; margin: 0px;}
 {
     background-color: #eeeeee;
     color: #222222;
+    cursor: pointer;
 }
 
 
@@ -92,3 +94,37 @@ html, body{padding: 0px; margin: 0px;}
 }
 
 
+.PaginationButton
+{
+    margin:0;
+    border: solid 1px black;
+    border-radius: 0px;
+    font-size: 1.2em;
+    width: 2em;
+    height: 2em;
+    background-color: #222222;
+    color: #eeeeee;
+}
+
+
+
+
+
+.PaginationButton-disabled{
+    color: #999999;
+    background-color: transparent;
+}
+
+
+
+.PaginationButton:hover{
+    cursor: pointer;
+    background-color: lime;
+}
+
+
+
+.PaginationButton-disabled:hover{
+    cursor: auto;
+    background-color: transparent;
+}
