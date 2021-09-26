@@ -11,17 +11,17 @@ class ProductCard extends Component {
     render() {
         let productCardClassName= "productCard productCardOutOfStock";
         let inStockText = "Out Of Stock"; 
-        let inStockStyle = "productCard-productInStock productCard-productInStock-Out";
+        let inStockStyle = "productCard-Element productCard-productInStock productCard-productInStock-Out";
         if(this.state.product.in_stock){
             productCardClassName= "productCard productCardInStock";
             inStockText = "In Stock";
-            inStockStyle = "productCard-productInStock productCard-productInStock-In";
+            inStockStyle = "productCard-Element productCard-productInStock productCard-productInStock-In";
         }
         return <li className="productCardContainer">
             <div className={productCardClassName}>
-                <div className="productCard-productName">{this.state.product.name}</div>
+                <div className="productCard-Element productCard-productName">{this.state.product.name}</div>
                 <div className={inStockStyle}>{inStockText}</div>
-                <div className="productCard-productPrice">${this.state.product.price}</div>
+                <div className="productCard-Element productCard-productPrice">${this.state.product.price}</div>
             </div>
         </li>;
     }

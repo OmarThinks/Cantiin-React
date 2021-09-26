@@ -194,3 +194,8 @@ html{
     color:darkred;
     text-shadow: red 1px 1px 1px;
 }
+
+.productCard-Element{
+    padding: .25em;
+    font-size: 1.25em;;
+}
