@@ -11,7 +11,7 @@ const NavBar = (props) => {
     {
         console.log("He is Logged In");
         login_partial=
-    <li className="navBarList-Index">
+    <li className="navBarList-Index navBarList-Index-Left">
         <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.logout}>
             Log Out
         </a>
@@ -20,12 +20,12 @@ const NavBar = (props) => {
     else{
         console.log("He is Logged Out");
         login_partial= <Fragment>
-        <li className="navBarList-Index">
+        <li className="navBarList-Index navBarList-Index-Left">
         <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.login}>
         Login
         </a>
     </li>
-    <li className="navBarList-Index">
+    <li className="navBarList-Index navBarList-Index-Left">
         <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.signup}>
         Sign Up
         </a>
