@@ -9,17 +9,9 @@ class NavBarLi extends Component {
         let {link}=this.props;
 
 
-/*
-
-            <button className="navBarIndexButton">
-                {text}
-            </button>
-
-*/
-
         return <li className="navBarList-Index">
-        <a className="navBarList-Index-Link" link={`${link}`}>
-            <button className="navBarIndexButton">
+        <a className="navBarList-Index-Link" href={link}>
+        <button className="navBarIndexButton">
                 {text}
             </button>
         </a>
@@ -43,37 +35,21 @@ const NavBar = (props) => {
 
     }
 
-/*
-
-    <li className="navBarList-Index">
-        <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.signup}>
-        Sign Up
-        </a>
-    </li>
-*/
     else{
         //console.log("He is Logged Out");
         login_partial= <Fragment>
         <NavBarLi text="Login" link={settings.frontend_urls.auth.login}/>
         <NavBarLi text="Sign Up" link={settings.frontend_urls.auth.signup}/>
-
+        <li className="navBarList-Index">
+        <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.signup}>
+        Sign Up
+        </a>
+    </li>
     </Fragment>
     ;
         
     }
 
-/*
-
-                    <li className="navBarList-Index">
-                        <a className="navBarList-Index-Link" href={settings.frontend_urls.products.list}>Home</a>
-                    </li>
-                    <li className="navBarList-Index">
-                        <a className="navBarList-Index-Link" href={settings.frontend_urls.products.list}>
-                        Products
-                        </a>
-                    </li>
-
-*/
 
     return(
         <div className="navBarDiv">

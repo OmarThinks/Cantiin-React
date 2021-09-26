@@ -1,4 +1,6 @@
 html, body{padding: 0px; margin: 0px;}
+
+
 .App{
     background-color: #eeeeee;
     min-height: 100vh;
@@ -31,8 +33,11 @@ html, body{padding: 0px; margin: 0px;}
 
 
 .navBarList-Index{
-    display: inline;
+    display: inline-block;
 }
 
 
-
+.navBarList-Index-Link
+{
+    display: block;
+}
