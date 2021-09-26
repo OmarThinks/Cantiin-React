@@ -1,10 +1,10 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { productsListFetcher } from '../../fetchers/products';
 import {getItemsList, getAllResultsNumber,
     getCurrentWindowPage,getCurrentResponsePage,
     getApiResponsePage,getMaxPage} from "../../functions/fetching/list";
 import Pagination from '../../components/pagination';
-
+import ProductCard from '../../components/cards/product';
 
 class ProductsList extends Component {
     state={
@@ -49,11 +49,17 @@ class ProductsList extends Component {
             <div>Loading...</div>
         </div>;}
 
-        //let prou
-        this.state.items.map(item=>{console.log(item)});
+        let productsList = this.state.items.map(product=>{return(
+            <Fragment>
+                <ProductCard name={product.name}/>
+            </Fragment>
+        );});
         return <div>
         <h1>Products List:</h1>
         <Pagination response={this.state.response}/>
+        <ul>
+            {productsList}
+        </ul>
         Loaded
         </div>;
     }
