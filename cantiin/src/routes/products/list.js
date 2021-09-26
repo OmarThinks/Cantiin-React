@@ -51,7 +51,7 @@ class ProductsList extends Component {
 
         let productsList = this.state.items.map(product=>{return(
             <Fragment>
-                <ProductCard name={product.name}/>
+                <ProductCard item={product}/>
             </Fragment>
         );});
         return <div>
