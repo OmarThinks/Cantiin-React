@@ -1,22 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 
 
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-  }));
+import LoginForm from '../components/forms/auth/login';
 
 
 const LoginRoute = (props) => {
     
-    const classes = useStyles();
     
     return <div>
 
@@ -24,11 +13,7 @@ const LoginRoute = (props) => {
       Login:
     </h1>
     
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-    </form>
+    <LoginForm/>
 
 
         </div>;
