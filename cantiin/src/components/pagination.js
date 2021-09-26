@@ -35,11 +35,11 @@ class Pagination extends Component {
             
             {getCurrentPagePaginationButton(this.state.currentUrl)}
             
-            {getNextPagePaginationButton(
-                this.state.currentUrl, this.state.maxPageNumber)}
             {getNextPagesPaginationButtons(
                 this.state.currentUrl, this.state.maxPageNumber)}
-            {getLastPagePaginationButton(
+           {getNextPagePaginationButton(
+                this.state.currentUrl, this.state.maxPageNumber)}
+             {getLastPagePaginationButton(
                 this.state.currentUrl, this.state.maxPageNumber)}
         
       </ul>  
