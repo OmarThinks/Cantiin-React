@@ -164,6 +164,7 @@ html{
     grid-template-areas:
     'productCard-productName productCard-productName'
     'productCard-productPrice productCard-productInStock';
+    grid-template-rows: 50% 50%;
   }
 
 
@@ -174,6 +175,9 @@ html{
 }
 
 
+
+
+
 .productCardInStock{
     background-color: lightgreen;
 }
@@ -181,6 +185,14 @@ html{
 .productCardOutOfStock{
     background-color: pink;
 }
+
+
+.productCardOutOfStock:hover, .productCardInStock:hover{
+    background-color: transparent;
+}
+
+
+
 
 .productCard-productInStock-In
 {
