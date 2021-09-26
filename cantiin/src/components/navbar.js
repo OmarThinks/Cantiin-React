@@ -45,7 +45,8 @@ const NavBar = (props) => {
         
     }
 
-
+    login_partial="";
+    // When we handle auth
     return(
         <div className="navBarDiv">
                <ul className="navBarList">
