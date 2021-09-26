@@ -8,7 +8,7 @@ import ProductsList from './routes/products/list';
 
 import NavBar from "./components/navbar";
 import Home from "./routes/home";
-
+import LoginRoute from "./routes/login";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
             <div className="content">
               <Route exact path="/" component={Home} />
               <Route path="/products" component={ProductsList} />
+              <Route path="/login" component={LoginRoute} />
             </div>
         </div>
       </BrowserRouter>
