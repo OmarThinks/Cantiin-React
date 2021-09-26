@@ -1,4 +1,6 @@
 import {settings} from '../settings';
+import { Fragment } from 'react';
+
 
 const NavBar = (props) => {
     
@@ -9,39 +11,38 @@ const NavBar = (props) => {
     {
         console.log("He is Logged In");
         login_partial=
-    <li>
-        <a href={settings.frontend_urls.auth.logout}>
+    <li className="navBarList-Index">
+        <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.logout}>
             Log Out
         </a>
     </li>;
     }
     else{
         console.log("He is Logged Out");
-        login_partial=
-            <div>
-    <li>
-        <a href={settings.frontend_urls.auth.login}>
+        login_partial= <Fragment>
+        <li className="navBarList-Index">
+        <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.login}>
         Login
         </a>
     </li>
-    <li>
-        <a href={settings.frontend_urls.auth.signup}>
+    <li className="navBarList-Index">
+        <a className="navBarList-Index-Link" href={settings.frontend_urls.auth.signup}>
         Sign Up
         </a>
     </li>
-    </div>
+    </Fragment>
     ;
         
     }
 
     return(
-        <div>
-               <ul>
-                    <li>
-                        <a href={settings.frontend_urls.home}>Home</a>
+        <div className="navBarDiv">
+               <ul className="navBarList">
+                    <li className="navBarList-Index">
+                        <a className="navBarList-Index-Link" href={settings.frontend_urls.home}>Home</a>
                     </li>
-                    <li>
-                        <a href={settings.frontend_urls.products.list}>
+                    <li className="navBarList-Index">
+                        <a className="navBarList-Index-Link" href={settings.frontend_urls.products.list}>
                         Products
                         </a>
                     </li>
