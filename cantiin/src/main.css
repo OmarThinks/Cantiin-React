@@ -1,4 +1,4 @@
-*{transition-duration: .5s;}
+*{transition: background-color .5s, color .5s;}
 
 html, body{padding: 0px; margin: 0px;}
 
@@ -15,7 +15,7 @@ html, body{padding: 0px; margin: 0px;}
 {
     margin: 0px;padding: 0px;
     display: block;
-    background-color: brown;
+    background-color: #222222;
 }
 
 
@@ -54,17 +54,17 @@ html, body{padding: 0px; margin: 0px;}
     /*Surroundings*/
     margin: 0px;
     padding: .4em;
-    border: solid black;
-    border-width: 0px .05em;
-    
+    border-width: 0px;
+    background-color: transparent;
+    color: #eeeeee;
     /*Content*/
     font-size: 2em;
-    background-color: yellow;
 }
 
 .navBarIndexButton:hover
 {
-    background-color: lime;
+    background-color: #eeeeee;
+    color: #222222;
 }
 
 
