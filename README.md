@@ -46,8 +46,59 @@ Here is the link of the Backend API: https://cantiin.com/api.
 4. React
 5. Testing
 6. Axios
+7. AWS Amplify
 
 </b>
+
+
+
+# D) Routes:
+
+
+## D-1) /
+
+This is the home directory.
+
+
+
+<img src="images/home.gif">
+
+
+
+## D-2) /products
+
+
+
+This is the page when the products are loading:
+
+<img src="images/products_loading.gif">
+
+
+This is the first page of the products:
+
+<img src="images/products_list_1.gif">
+
+This is the second page:
+
+<img src="images/products_list_1.gif">
+
+
+
+
+
+
+
+
+# E) Backend:
+
+
+
+<img src="images/backend.gif">
+
+
+
+
+
 
 
 
