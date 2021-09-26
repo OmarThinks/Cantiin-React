@@ -49,8 +49,8 @@ class ProductsList extends Component {
             <div>Loading...</div>
         </div>;}
 
-
-
+        //let prou
+        this.state.items.map(item=>{console.log(item)});
         return <div>
         <h1>Products List:</h1>
         <Pagination response={this.state.response}/>
