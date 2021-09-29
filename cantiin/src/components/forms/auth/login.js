@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+const axios = require('axios');
 
 const LoginForm = () => {
   
@@ -11,6 +11,21 @@ const LoginForm = () => {
   const handleSubmit = (e) =>{
     e.preventDefault();
     console.log({username,password});
+  
+        
+    // Make a request for a user with a given ID
+    axios.post('https://cantiin.com/api/auth/users/login/')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+
+
+  
   }
 
   
