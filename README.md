@@ -80,7 +80,7 @@ This is the first page of the products:
 
 This is the second page:
 
-<img src="images/products_list_1.gif">
+<img src="images/products_list_2.gif">
 
 
 
