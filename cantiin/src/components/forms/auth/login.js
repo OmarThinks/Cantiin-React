@@ -20,6 +20,8 @@ function getCookie(name) {
 
 let localhost_djoser_login_url = "http://127.0.0.1:8000/api/auth/token/login/";
 let localhost_drf_login_url = "http://127.0.0.1:8000/api-auth/login/";
+let localhost_custom_login_url = "http://127.0.0.1:8000/api/auth/custom/login/";
+let localhost_drf_token_login_url = "http://127.0.0.1:8000/api-token-auth/";
 
 
 
@@ -72,7 +74,7 @@ const LoginForm = () => {
     method: 'post',
     url: localhost_drf_login_url,
     data: {
-      username,password
+      username
     },
     withCredentials: true,
       
@@ -82,8 +84,8 @@ const LoginForm = () => {
 
     
     
-  fetch(localhost_drf_login_url, {
-    //credentials: 'include',
+  fetch(localhost_custom_login_url, {
+    credentials: 'include',
     method: 'POST',
     headers: {
       //'Accept': 'application/json',
@@ -117,7 +119,22 @@ const LoginForm = () => {
   
   }
 
-  
+   
+  fetch("http://127.0.0.1:8000/api/auth/custom/login/test/", {
+    credentials: 'include',
+    method: 'GET',
+   }).then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  });
+    
+
+
+
   return ( <form onSubmit={handleSubmit}>
 
 <div>
