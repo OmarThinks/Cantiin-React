@@ -12,42 +12,38 @@ import {getCurrentPagePaginationButton,getPrevPagePaginationButton,
 
 
 
-class Pagination extends Component {
-    constructor(props) {
-        //console.log("This is props");
-        super(props);
-        let response = props.response;
-        this.state = 
-    { 
-        "response":response,
-        "currentUrl":window.location.href,
-        "maxPageNumber":getMaxPage(response),
-    };
-    }
-    render() {
-        //console.log(`State is:`);
-        //console.log( this.state);
-        return <Fragment>
+
+
+
+
+const Pagination = (props) => {
+    
+    let response = props.response;
+    let currentUrl = window.location.href;
+    let maxPageNumber = getMaxPage(response),
+    
+    return (
         <ul className="pagination"> 
-            {getFirstPagePaginationButton(this.state.currentUrl)}
-            {getPrevPagePaginationButton(this.state.currentUrl)}
-            {getPrevPagesPaginationButtons(this.state.currentUrl)}
+            {getFirstPagePaginationButton(currentUrl)}
+            {getPrevPagePaginationButton(currentUrl)}
+            {getPrevPagesPaginationButtons(currentUrl)}
             
-            {getCurrentPagePaginationButton(this.state.currentUrl)}
+            {getCurrentPagePaginationButton(currentUrl)}
             
             {getNextPagesPaginationButtons(
-                this.state.currentUrl, this.state.maxPageNumber)}
+                currentUrl, maxPageNumber)}
            {getNextPagePaginationButton(
-                this.state.currentUrl, this.state.maxPageNumber)}
+                currentUrl, maxPageNumber)}
              {getLastPagePaginationButton(
-                this.state.currentUrl, this.state.maxPageNumber)}
+                currentUrl, maxPageNumber)}
         
       </ul>  
-    </Fragment>;
-    }
-
+    );
 }
  
+
+
+
 export default Pagination;
 
 
