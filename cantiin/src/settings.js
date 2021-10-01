@@ -7,7 +7,15 @@ const backend_urls =
     "products":
     {
         "list":backend_url+"/api/products/"
+    },
+    "auth":
+    {
+        "user":"/api/auth/custom/user/",
+        "signup":"/api/auth/custom/user/",
+        "login":"/api/auth/custom/login/",
+        "logout":"api/auth/custom/logout/",
     }
+
 };
 
 
