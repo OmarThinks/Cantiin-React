@@ -2,21 +2,16 @@ import {settings} from '../settings';
 import { Fragment, Component } from 'react';
 
 
-class NavBarLi extends Component {
-    render() {
 
-        let {text} = this.props;
-        let {link}=this.props;
-
-
-        return <li className="navBarList-Index">
-        <a className="navBarList-Index-Link" href={link}>
-        <button className="navBarIndexButton">
-                {text}
-            </button>
-        </a>
-    </li>;
-    }
+const NavBarLi = (props) => {
+    
+    return (<li className="navBarList-Index">
+    <a className="navBarList-Index-Link" href={props.link}>
+    <button className="navBarIndexButton">
+            {props.text}
+        </button>
+    </a>
+    </li>);
 }
  
 
