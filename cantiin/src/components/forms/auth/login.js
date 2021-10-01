@@ -19,8 +19,8 @@ function getCookie(name) {
 
 
 let localhost_djoser_login_url = "http://127.0.0.1:8000/api/auth/token/login/";
-let localhost_drf_login_url = "http://127.0.0.1:8000/api-auth/login/";
-let localhost_custom_login_url = "http://127.0.0.1:8000/api/auth/custom/login/";
+let localhost_drf_login_url = "https://cantiin.com/api-auth/login/";
+let localhost_custom_login_url = "https://cantiin.com/api/auth/custom/login/";
 let localhost_drf_token_login_url = "http://127.0.0.1:8000/api-token-auth/";
 
 
@@ -83,7 +83,7 @@ const LoginForm = () => {
 
     
     
-  fetch("http://127.0.0.1:8000/api-auth/logout/", {
+  fetch("https://cantiin.com/api/auth/custom/logout/", {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -165,8 +165,9 @@ const LoginForm = () => {
   
   }
 
+
    
-  fetch("http://127.0.0.1:8000/api/auth/custom/login/test/", {
+  fetch("https://cantiin.com/api/auth/custom/user/", {
     credentials: 'include',
     method: 'GET',
    }).then(function (response) {
@@ -178,7 +179,6 @@ const LoginForm = () => {
     console.log(error);
   });
     
-
 
 
   return ( <form onSubmit={handleSubmit}>

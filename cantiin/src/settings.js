@@ -1,4 +1,4 @@
-const backend_url = "https://www.cantiin.com";
+const backend_url = "https://cantiin.com";
 const frontend_url = "";
 
 
