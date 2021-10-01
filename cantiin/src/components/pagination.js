@@ -20,7 +20,7 @@ const Pagination = (props) => {
     
     let response = props.response;
     let currentUrl = window.location.href;
-    let maxPageNumber = getMaxPage(response),
+    let maxPageNumber = getMaxPage(response);
     
     return (
         <ul className="pagination"> 
