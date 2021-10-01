@@ -11,9 +11,9 @@ const backend_urls =
     "auth":
     {
         "user":"/api/auth/custom/user/",
-        "signup":"/api/auth/custom/user/",
+        "signup":"/api/auth/users/",
         "login":"/api/auth/custom/login/",
-        "logout":"api/auth/custom/logout/",
+        "logout":"/api/auth/custom/logout/",
     }
 
 };
