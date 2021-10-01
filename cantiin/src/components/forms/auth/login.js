@@ -62,6 +62,52 @@ const LoginForm = () => {
   const [password, setPassword] = useState("admin");
 
 
+
+
+  const logout = (e) =>{
+    e.preventDefault();
+    console.log({username,password});
+
+
+    var config = {
+    method: 'post',
+    url: localhost_drf_login_url,
+    data: {
+      username
+    },
+    withCredentials: true,
+      
+  };
+
+
+
+    
+    
+  fetch("http://127.0.0.1:8000/api-auth/logout/", {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      //'Accept': 'application/json',
+      "Content-Type":"application/json",
+      //'X-CSRFToken': "abc"
+    },
+   }).then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  });
+    
+
+  }
+
+
+
+
+
+
   const handleSubmit = (e) =>{
     e.preventDefault();
     console.log({username,password});
@@ -146,6 +192,9 @@ const LoginForm = () => {
     <input type="text" name="password" value={password} onChange={e=>{setPassword(e.target.value)}}/>
     </div>
     <input type="submit" value="Login"/>
+
+
+<button onClick={logout}>Logout</button>
 
   </form> );
 }
