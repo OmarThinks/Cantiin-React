@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import jQuery from 'jquery'
 import fetchers from '../../../helpers/fetchers';
 import {Redirect} from 'react-router-dom';
 
+import AuthContext from '../../../contexts/Authentication';
 
 
 const axios = require('axios');
@@ -24,6 +25,9 @@ const LoginForm = () => {
       errors: {username:"", password:""}
     });
 
+  
+  const {successfulUserResponse} = useContext(AuthContext);
+
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -37,7 +41,8 @@ const LoginForm = () => {
 
   fetchers.auth.login({"username":form.data.username,"password":form.data.password})
   .then(function (response) {
-    //window.location.replace("/");
+    successfulUserResponse(response);
+    window.location.replace("/");
   })
   .catch(function (error) {
     let data = error.response.data;

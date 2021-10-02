@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import jQuery from 'jquery'
 import fetchers from '../../../helpers/fetchers';
 import {Redirect} from 'react-router-dom';
 
+import AuthContext from '../../../contexts/Authentication';
 
 
 const axios = require('axios');
@@ -23,6 +24,8 @@ const SignupForm = () => {
       data:   {username:"", password:"", re_password:""},
       errors: {username:"", password:"", re_password:""}
     });
+    
+  const {successfulUserResponse} = useContext(AuthContext);
 
 
   const handleSubmit = (e) =>{
@@ -50,6 +53,7 @@ const SignupForm = () => {
   fetchers.auth.signup(
     {"username":form.data.username,"password":form.data.password})
   .then(function (response) {
+    successfulUserResponse(response);
     window.location.replace("/login");
   })
   .catch(function (error) {
