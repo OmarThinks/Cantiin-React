@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import jQuery from 'jquery'
+import fetchers from '../../../helpers/fetchers';
 const axios = require('axios');
 
 function getCookie(name) {
@@ -110,36 +111,9 @@ const LoginForm = () => {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log({username,password});
-  
-    var csrftoken = getCookie('csrftoken');
-    //var url = localhost_djoser_login_url;
     
-
-  var config = {
-    method: 'post',
-    url: localhost_drf_login_url,
-    data: {
-      username
-    },
-    withCredentials: true,
-      
-  };
-
-
-
-    
-    
-  fetch(localhost_custom_login_url, {
-    credentials: 'include',
-    method: 'POST',
-    headers: {
-      //'Accept': 'application/json',
-      "Content-Type":"application/json",
-      //'X-CSRFToken': "abc"
-    },
-    body: JSON.stringify({username, password})
-   }).then(function (response) {
+  fetchers.auth.login({username,password})
+  .then(function (response) {
     // handle success
     console.log(response);
   })
@@ -148,37 +122,10 @@ const LoginForm = () => {
     console.log(error);
   });
     
-    
-    
-    /*// Make a request for a user with a given ID
-    axios.post('https://cantiin.com/api/auth/users/login/')
-    .then(function (response) {
-      // handle success
-      console.log(response);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });*/
-
-
-  
   }
 
 
-/*
-  fetch("https://cantiin.com/api/auth/custom/user/", {
-    credentials: 'include',
-    method: 'GET',
-   }).then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  });
-*/  
+
 
 
   return ( <form onSubmit={handleSubmit}>

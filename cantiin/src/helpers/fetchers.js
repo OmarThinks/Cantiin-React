@@ -19,6 +19,38 @@ function productsListFetcher(pageNumber = 1)
 }
 
 
+
+
+
+function authLoginFetcher({username,password}){
+    let fetcher=axios(
+        {
+            method: 'post',
+            url: settings.backend_urls.auth.login,
+            withCredentials: true,
+            data:{username,password}
+        }
+    );
+    return fetcher;   
+}
+
+
+
+function authLogoutFetcher(){
+    let fetcher=axios(
+        {
+            method: 'post',
+            url: settings.backend_urls.auth.logout,
+            withCredentials: true,
+        }
+    );
+    return fetcher;   
+}
+
+
+
+
+
 function authWhoFetcher(){
     let fetcher=axios(
         {
@@ -28,7 +60,6 @@ function authWhoFetcher(){
         }
     );
     return fetcher;
-
 }
 
 
@@ -48,8 +79,8 @@ const fetchers={
     },
     auth:
     {
-        login: "login",
-        logout: "logout",
+        login: authLoginFetcher,
+        logout: authLogoutFetcher,
         who: authWhoFetcher,
     }
 };
