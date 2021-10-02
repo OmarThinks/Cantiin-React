@@ -1,5 +1,8 @@
 import { getUrlPage } from '../functions/urls';
 import React, { Component } from 'react';
+
+import {Link} from 'react-router-dom';
+
 var assert = require('assert');
 
 /* it takes these inputs
@@ -74,14 +77,23 @@ const PaginationButton = (props) => {
     }
     else{
         return <li className="paginationListIndex">
-            <a className="paginationLink" href={link}>
+            <Link className="paginationLink" to={link}>
                 <button className="PaginationButton">{buttonText}</button>
-            </a>
+            </Link>
         </li>;
     }
 
 }
- 
+
+
+/*
+            <a className="paginationLink" href={link}>
+                <button className="PaginationButton">{buttonText}</button>
+            </a>
+
+*/
+
+
 export default PaginationButton;
 
 

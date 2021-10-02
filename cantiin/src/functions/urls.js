@@ -23,6 +23,13 @@ function getPureUrl(url)
 
 
 
+function getUrlPath(url)
+{
+    const parsedUrl = new URL(url);
+    return parsedUrl.pathname;
+}
+
+
 
 
 function getUrlQueryParameters(url)
@@ -75,4 +82,4 @@ function getUrlPage(url)
 
 
 export {buildUrl, getPureUrl, getUrlQueryParameters,getUrlSpecificQueryPramater,
-    getUrlPage};
+    getUrlPage, getUrlPath};

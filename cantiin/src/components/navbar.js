@@ -8,7 +8,7 @@ import fetchers from "../helpers/fetchers";
 import  AuthContext  from '../contexts/Authentication';
 
 
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const NavBarLi = (props) => {
     
@@ -53,10 +53,7 @@ const NavBarLi = (props) => {
 
 
 const NavBar = (props) => {
-    //console.log(localStorage.getItem("authState"));
     let {is_authenticated} = useContext(AuthContext);
-
-
 
     console.log(is_authenticated);
 
