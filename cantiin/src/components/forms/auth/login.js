@@ -24,19 +24,23 @@ const LoginForm = () => {
   const handleSubmit = (e) =>{
     e.preventDefault();
     
+    setForm(
+      {
+        ...form,
+        errors: {username:"",password:""}
+      }
+    );
+
   fetchers.auth.login({"username":form.data.username,"password":form.data.password})
   .then(function (response) {
-    // handle success
-    console.log(response);
+    window.location.replace("/");
   })
   .catch(function (error) {
-    // handle error
-    console.log(error.response.data);
     let data = error.response.data;
     setForm({
       ...form,
       errors:{
-        ...{username:"",password:""},
+        ...form.errors,
         ...data
       }
     });
@@ -49,10 +53,13 @@ const LoginForm = () => {
   const handleChange=(e)=>{
     setForm(
       {
-        ...form,
         data:{
           ...form.data,
           [e.target.name]:e.target.value
+        },
+        errors:{
+          ...form.errors,
+          [e.target.name]:""
         }
       }
       );
