@@ -11,7 +11,7 @@ Creating a React frontend to Cantiin.com
 <tr>
 <td>Deployed on <b>AWS Amplify</b></td>
 <td>
-<a href="https://cantiin.d3thsty4rzma1i.amplifyapp.com" >https://cantiin.d3thsty4rzma1i.amplifyapp.com</a>
+<a href="https://cantiin.d3thsty4rzma1i.amplifyapp.com/">https://cantiin.d3thsty4rzma1i.amplifyapp.com/</a>
 </td>
 </tr>
 <tr>
@@ -44,6 +44,11 @@ Here is the link of the Backend API: https://cantiin.com/api.
 2. CSS
 3. JavaScript
 4. React
+    - Functional Components
+    - Contexts
+    - Hooks
+    - Authentication
+    - React-Router-Dom
 5. Testing
 6. Axios
 7. AWS Amplify
