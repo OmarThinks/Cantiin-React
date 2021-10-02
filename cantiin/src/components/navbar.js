@@ -9,6 +9,24 @@ import  AuthContext  from '../contexts/Authentication';
 
 const NavBarLi = (props) => {
     
+    if(props.logout)
+    {
+        const logmeout = (e) =>{
+            console.log("Let's Logout");
+        }
+
+        return (<li className="navBarList-Index">
+        <a className="navBarList-Index-Link">
+        <button className="navBarIndexButton" onClick={logmeout}>
+                {props.text}
+            </button>
+        </a>
+        </li>)
+    }
+
+
+
+
     return (<li className="navBarList-Index">
     <a className="navBarList-Index-Link" href={props.link}>
     <button className="navBarIndexButton">
@@ -34,7 +52,8 @@ const NavBar = (props) => {
     if(is_authenticated)
     {
         //console.log("He is Logged In");
-        login_partial= <NavBarLi text="Log Out" link={settings.frontend_urls.auth.logout}/>;
+        login_partial= <NavBarLi text="Log Out"
+        isLogoutButton={true}/>;
 
     }
 
