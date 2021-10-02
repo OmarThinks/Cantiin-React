@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import LoginForm from '../../components/forms/auth/login';
+import SignupForm from '../../components/forms/auth/signup';
 
 
 const SignupRoute = (props) => {
@@ -13,7 +13,7 @@ const SignupRoute = (props) => {
       Login:
     </h1>
     
-    <LoginForm/>
+    <SignupForm/>
 
 
         </div>;
