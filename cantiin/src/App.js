@@ -13,7 +13,7 @@ import ProductsList from './routes/products/list';
 
 import NavBar from "./components/navbar";
 import Home from "./routes/home";
-import LoginRoute from "./routes/login";
+import LoginRoute from "./routes/auth/login";
 
 
 
