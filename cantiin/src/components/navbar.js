@@ -51,7 +51,7 @@ const NavBarLi = (props) => {
 
 
 const NavBar = (props) => {
-    
+    //console.log(localStorage.getItem("authState"));
     let {is_authenticated} = useContext(AuthContext);
 
 
