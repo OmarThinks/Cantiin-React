@@ -29,11 +29,11 @@ const NavBarLi = (props) => {
         }
 
         return (<li className="navBarList-Index">
-        <a className="navBarList-Index-Link">
+        <span className="navBarList-Index-Link">
         <button className="navBarIndexButton" onClick={logmeout}>
                 {props.text}
             </button>
-        </a>
+        </span>
         </li>)
     }
 

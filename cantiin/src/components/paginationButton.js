@@ -89,13 +89,6 @@ const PaginationButton = (props) => {
 }
 
 
-/*
-            <a className="paginationLink" href={link}>
-                <button className="PaginationButton">{buttonText}</button>
-            </a>
-
-*/
-
 
 export default PaginationButton;
 
