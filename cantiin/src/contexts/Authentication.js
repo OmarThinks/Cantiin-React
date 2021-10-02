@@ -2,7 +2,7 @@ import {createContext, useState, useEffect} from 'react';
 import axios from 'axios';
 import { settings } from '../settings';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
     
@@ -13,32 +13,28 @@ const AuthContextProvider = (props) => {
         } 
     );
 
-    useEffect(
-        ()=>{
-            localStorage.setItem("products", JSON.stringify(authState));
-        }
-        ,[authState]);
+
     
     const refetchIsAuthenticated = () =>{
-
-    let config = {
-        method: 'get',
-        url: settings.backend_urls.auth.user,
-        withCredentials: true,
-        };
-    axios(config)
-    .then((response)=>{setAuthState({
-        "is_authenticated":true,
-        "user":response.data
-    })})
-    .catch((err)=>{setAuthState({"is_authenticated":false, "user":null})});
-
+        let config = {
+            method: 'get',
+            url: settings.backend_urls.auth.user,
+            withCredentials: true,
+            };
+        axios(config)
+        .then((response)=>{setAuthState({
+            "is_authenticated":true,
+            "user":response.data
+        })})
+        .catch((err)=>{setAuthState({"is_authenticated":false, "user":null})});
     }
 
+    useEffect(()=>{refetchIsAuthenticated();},[authState]);
+
     return ( 
-    <ProductContext.Provider value={state, refetchIsAuthenticated}>
+    <AuthContext.Provider value={authState, refetchIsAuthenticated}>
         {props.children}
-    </ProductContext.Provider> );
+    </AuthContext.Provider> );
 }
  
 export {AuthContext, AuthContextProvider};
