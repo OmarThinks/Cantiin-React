@@ -9,13 +9,18 @@ import ProductCard from '../../components/cards/product';
 import fetchers from '../../helpers/fetchers';
 
 const ProductsList = () => {
-    const [state,setState] = useState({
+    
+    const initialState = {
         "loaded":false,
         "items":[],
         "response":null,
         "success":false,
         "err":null
-    });
+    };
+
+
+    
+    const [state,setState] = useState(initialState);
 
     const handleSucessfulResponse = (response) =>
     {
@@ -33,6 +38,7 @@ const ProductsList = () => {
         //console.log(state);
     }
     
+
     const handleFailingResponse = (err) =>
     {
         setState({
@@ -49,6 +55,7 @@ const ProductsList = () => {
 
 
     useEffect(()=>{
+        setState(initialState);
         fetchers.products.list(getCurrentWindowPage())
         .then((response)=>{handleSucessfulResponse(response);})
         .catch((err)=>{handleFailingResponse(err);})        
