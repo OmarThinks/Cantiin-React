@@ -35,10 +35,22 @@ const SignupForm = () => {
       }
     );
 
+    if (form.data.password !== form.data.re_password)
+    {
+      setForm(
+        {
+          ...form,
+          errors: {username:"",password:"", re_password:"password mismatch"}
+        }
+      );
+      return;
+    }
+
+
   fetchers.auth.login(
     {"username":form.data.username,"password":form.data.password, re_password:form.data.re_password})
   .then(function (response) {
-    window.location.replace("/");
+    window.location.replace("/login");
   })
   .catch(function (error) {
     let data = error.response.data;
@@ -90,7 +102,7 @@ const SignupForm = () => {
     <div>
       <label>Retype Password: </label>
       <input type="password" name="re_password" value={form.data.re_password} onChange={handleChange}/>
-      <span className="form-error" name="password"> {form.errors.re_password}</span>
+      <span className="form-error" name="re_password"> {form.errors.re_password}</span>
     </div>
     <input type="submit" value="Login"/>
 

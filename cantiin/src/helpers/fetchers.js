@@ -79,6 +79,7 @@ const fetchers={
     },
     auth:
     {
+        signup:"signup",
         login: authLoginFetcher,
         logout: authLogoutFetcher,
         who: authWhoFetcher,
