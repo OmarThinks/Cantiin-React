@@ -13,27 +13,33 @@ const axios = require('axios');
 const LoginForm = () => {
   
   
-  const [username, setUsername] = useState("admin");
-  const [password, setPassword] = useState("admin");
 
   const [form,setForm] = useState(
     {
       data:   {username:"", password:""},
-      errors: {username:"abc", password:"defg"}
+      errors: {username:"", password:""}
     });
 
 
   const handleSubmit = (e) =>{
     e.preventDefault();
     
-  fetchers.auth.login({username,password})
+  fetchers.auth.login({"username":form.data.username,"password":form.data.password})
   .then(function (response) {
     // handle success
     console.log(response);
   })
   .catch(function (error) {
     // handle error
-    console.log(error);
+    console.log(error.response.data);
+    let data = error.response.data;
+    setForm({
+      ...form,
+      errors:{
+        ...{username:"",password:""},
+        ...data
+      }
+    });
   });
     
   }
