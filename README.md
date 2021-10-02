@@ -91,6 +91,22 @@ This is the second page:
 
 
 
+## D-3) Authentication:
+
+
+This is the login form:
+
+<img src="images/front_login.gif">
+
+
+
+
+This is the Sign up form:
+
+<img src="images/front_signup.gif">
+
+
+
 
 
 
