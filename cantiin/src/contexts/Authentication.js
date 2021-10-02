@@ -1,6 +1,7 @@
 import {createContext, useState, useEffect} from 'react';
 import axios from 'axios';
 import { settings } from '../settings';
+import fetchers from '../helpers/fetchers';
 
 const AuthContext = createContext();
 
@@ -16,12 +17,7 @@ const AuthContextProvider = (props) => {
 
     
     const refetchIsAuthenticated = () =>{
-        let config = {
-            method: 'get',
-            url: settings.backend_urls.auth.user,
-            withCredentials: true,
-            };
-        axios(config)
+        fetchers.auth.who()
         .then((response)=>{setAuthState({
             "is_authenticated":true,
             "user":response.data
