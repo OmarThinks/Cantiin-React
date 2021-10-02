@@ -1,6 +1,10 @@
 import {settings} from '../settings';
-import { Fragment, Component } from 'react';
 
+
+import { Fragment, Component, useContext } from 'react';
+
+
+import  AuthContext  from '../contexts/Authentication';
 
 
 const NavBarLi = (props) => {
@@ -20,7 +24,13 @@ const NavBarLi = (props) => {
 
 const NavBar = (props) => {
     
+    let authContext = useContext(AuthContext);
+
+
     let isLoggedIn=props.isLoggedIn;
+
+    console.log(isLoggedIn);
+    console.log(authContext);
 
     let login_partial = "";
     if(isLoggedIn)

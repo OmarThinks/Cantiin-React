@@ -5,6 +5,8 @@ import fetchers from '../helpers/fetchers';
 
 const AuthContext = createContext();
 
+export default AuthContext;
+
 const AuthContextProvider = (props) => {
     
     const [authState, setAuthState] = useState( 
@@ -30,9 +32,9 @@ const AuthContextProvider = (props) => {
     useEffect(()=>{refetchIsAuthenticated();},[localStorage.getItem("authState")]);
 
     return ( 
-    <AuthContext.Provider value={authState, refetchIsAuthenticated}>
+    <AuthContext.Provider value={{...authState, refetchIsAuthenticated}}>
         {props.children}
     </AuthContext.Provider> );
 }
  
-export {AuthContext, AuthContextProvider};
+export {AuthContextProvider};
