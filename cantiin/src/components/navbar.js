@@ -8,6 +8,8 @@ import fetchers from "../helpers/fetchers";
 import  AuthContext  from '../contexts/Authentication';
 
 
+import {Link, NavLink} from 'react-router-dom';
+
 const NavBarLi = (props) => {
     
     console.log(props);
@@ -37,16 +39,16 @@ const NavBarLi = (props) => {
 
 
 
-    return (<li className="navBarList-Index">
-    <a className="navBarList-Index-Link" href={props.link}>
-    <button className="navBarIndexButton">
-            {props.text}
-        </button>
-    </a>
+    return (
+    <li className="navBarList-Index">  
+            <Link className="navBarList-Index-Link" to={props.link}>
+                <button className="navBarIndexButton">
+                    {props.text}
+                </button>                
+            </Link>        
     </li>);
 }
  
-
 
 
 
