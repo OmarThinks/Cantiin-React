@@ -80,7 +80,7 @@ const LoginForm = () => {
     </div>
     <div>
     <label>Password: </label>
-    <input type="text" name="password" value={form.data.password} onChange={handleChange}/>
+    <input type="password" name="password" value={form.data.password} onChange={handleChange}/>
     <span className="form-error" name="password"> {form.errors.password}</span>
     </div>
     <input type="submit" value="Login"/>

@@ -20,8 +20,8 @@ const SignupForm = () => {
 
   const [form,setForm] = useState(
     {
-      data:   {username:"", password:""},
-      errors: {username:"", password:""}
+      data:   {username:"", password:"", re_password:""},
+      errors: {username:"", password:"", re_password:""}
     });
 
 
@@ -31,11 +31,12 @@ const SignupForm = () => {
     setForm(
       {
         ...form,
-        errors: {username:"",password:""}
+        errors: {username:"",password:"", re_password:""}
       }
     );
 
-  fetchers.auth.login({"username":form.data.username,"password":form.data.password})
+  fetchers.auth.login(
+    {"username":form.data.username,"password":form.data.password, re_password:form.data.re_password})
   .then(function (response) {
     window.location.replace("/");
   })
@@ -73,17 +74,27 @@ const SignupForm = () => {
 
   return ( <form onSubmit={handleSubmit}>
 
-<div>
-    <label>Username: </label>
-    <input type="text" name="username" value={form.data.username} onChange={handleChange}/>
-    <span className="form-error" name="username"> {form.errors.username}</span>
-    </div>
     <div>
-    <label>Password: </label>
-    <input type="text" name="password" value={form.data.password} onChange={handleChange}/>
-    <span className="form-error" name="password"> {form.errors.password}</span>
+      <label>Username: </label>
+      <input type="text" name="username" value={form.data.username} onChange={handleChange}/>
+      <span className="form-error" name="username"> {form.errors.username}</span>
+    </div>
+    
+    <div>
+      <label>Password: </label>
+      <input type="password" name="password" value={form.data.password} onChange={handleChange}/>
+      <span className="form-error" name="password"> {form.errors.password}</span>
+    </div>
+
+
+    <div>
+      <label>Retype Password: </label>
+      <input type="password" name="re_password" value={form.data.re_password} onChange={handleChange}/>
+      <span className="form-error" name="password"> {form.errors.re_password}</span>
     </div>
     <input type="submit" value="Login"/>
+
+
 
   </form> );
 }
