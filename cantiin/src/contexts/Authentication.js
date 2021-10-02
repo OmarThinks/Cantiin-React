@@ -18,24 +18,32 @@ const AuthContextProvider = (props) => {
 
     //console.log(authState);
 
+    
+    const successfulUserResponse = (response) =>{
+        let correctAuthState = {"is_authenticated":true,"user":response.data};
+        localStorage.setItem("authState",JSON.stringify(correctAuthState));
+        setAuthState(correctAuthState);       
+    }
+
+
+    const failureUserResponse = () =>{
+        let correctAuthState = {"is_authenticated":false, "user":null};
+        localStorage.setItem("authState",JSON.stringify(correctAuthState));
+        setAuthState(correctAuthState);      
+    }
+
+    
     const refetchIsAuthenticated = () =>{
         fetchers.auth.who()
-        .then((response)=>{
-            let correctAuthState = {"is_authenticated":true,"user":response.data};
-            localStorage.setItem("authState",JSON.stringify(correctAuthState));
-            setAuthState(correctAuthState);
-        })
-        .catch((err)=>{
-            let correctAuthState = {"is_authenticated":false, "user":null};
-            localStorage.setItem("authState",JSON.stringify(correctAuthState));
-            setAuthState(correctAuthState);
-        });
+        .then((response)=>{successfulUserResponse(response);})
+        .catch((err)=>{failureUserResponse();});
     }
     
     useEffect(()=>{refetchIsAuthenticated();},[localStorage.getItem("authState")]);
 
     return ( 
-    <AuthContext.Provider value={{...authState, refetchIsAuthenticated}}>
+    <AuthContext.Provider 
+        value={{...authState, refetchIsAuthenticated, successfulUserResponse, failureUserResponse}}>
         {props.children}
     </AuthContext.Provider> );
 }
