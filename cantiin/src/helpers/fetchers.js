@@ -36,6 +36,22 @@ function authLoginFetcher({username,password}){
 
 
 
+
+
+function authٍSignupFetcher({username,password}){
+    let fetcher=axios(
+        {
+            method: 'post',
+            url: settings.backend_urls.auth.signup,
+            withCredentials: true,
+            data:{username,password}
+        }
+    );
+    return fetcher;   
+}
+
+
+
 function authLogoutFetcher(){
     let fetcher=axios(
         {
@@ -79,7 +95,7 @@ const fetchers={
     },
     auth:
     {
-        signup:"signup",
+        signup:authٍSignupFetcher,
         login: authLoginFetcher,
         logout: authLogoutFetcher,
         who: authWhoFetcher,

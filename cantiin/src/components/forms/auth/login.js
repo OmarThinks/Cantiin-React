@@ -37,7 +37,7 @@ const LoginForm = () => {
 
   fetchers.auth.login({"username":form.data.username,"password":form.data.password})
   .then(function (response) {
-    window.location.replace("/");
+    //window.location.replace("/");
   })
   .catch(function (error) {
     let data = error.response.data;

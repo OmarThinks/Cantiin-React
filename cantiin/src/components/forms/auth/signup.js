@@ -47,12 +47,13 @@ const SignupForm = () => {
     }
 
 
-  fetchers.auth.login(
-    {"username":form.data.username,"password":form.data.password, re_password:form.data.re_password})
+  fetchers.auth.signup(
+    {"username":form.data.username,"password":form.data.password})
   .then(function (response) {
     window.location.replace("/login");
   })
   .catch(function (error) {
+    console.log(error);
     let data = error.response.data;
     setForm({
       ...form,
@@ -104,9 +105,9 @@ const SignupForm = () => {
       <input type="password" name="re_password" value={form.data.re_password} onChange={handleChange}/>
       <span className="form-error" name="re_password"> {form.errors.re_password}</span>
     </div>
-    <input type="submit" value="Login"/>
-
-
+    
+    
+    <input type="submit" value="Create Account"/>
 
   </form> );
 }
