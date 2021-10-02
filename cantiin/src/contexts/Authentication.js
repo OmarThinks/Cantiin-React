@@ -15,7 +15,6 @@ const AuthContextProvider = (props) => {
     );
 
 
-    
     const refetchIsAuthenticated = () =>{
         fetchers.auth.who()
         .then((response)=>{setAuthState({
@@ -25,7 +24,7 @@ const AuthContextProvider = (props) => {
         .catch((err)=>{setAuthState({"is_authenticated":false, "user":null})});
     }
 
-    useEffect(()=>{refetchIsAuthenticated();},[authState]);
+    //useEffect(()=>{refetchIsAuthenticated();},[authState]);//resulkts in infinity loop
 
     return ( 
     <AuthContext.Provider value={authState, refetchIsAuthenticated}>

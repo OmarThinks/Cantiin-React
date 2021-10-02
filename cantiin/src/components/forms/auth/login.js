@@ -166,7 +166,7 @@ const LoginForm = () => {
   }
 
 
-   
+/*
   fetch("https://cantiin.com/api/auth/custom/user/", {
     credentials: 'include',
     method: 'GET',
@@ -178,7 +178,7 @@ const LoginForm = () => {
     // handle error
     console.log(error);
   });
-    
+*/  
 
 
   return ( <form onSubmit={handleSubmit}>

@@ -52,7 +52,7 @@ const ProductsList = () => {
         fetchers.products.list(getCurrentWindowPage())
         .then((response)=>{handleSucessfulResponse(response);})
         .catch((err)=>{handleFailingResponse(err);})        
-    },[state]);
+    },[window.location.href]);
     
     
     if (!state.loaded)
