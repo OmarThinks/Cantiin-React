@@ -1,10 +1,12 @@
 import { Component, Fragment, useState, useEffect } from 'react';
-import { productsListFetcher } from '../../fetchers/products';
 import {getItemsList, getAllResultsNumber,
     getCurrentWindowPage,getCurrentResponsePage,
     getApiResponsePage,getMaxPage} from "../../functions/fetching/list";
 import Pagination from '../../components/pagination';
 import ProductCard from '../../components/cards/product';
+
+
+import fetchers from '../../helpers/fetchers';
 
 const ProductsList = () => {
     const [state,setState] = useState({
@@ -47,7 +49,7 @@ const ProductsList = () => {
 
 
     useEffect(()=>{
-        productsListFetcher(getCurrentWindowPage())
+        fetchers.products.list(getCurrentWindowPage())
         .then((response)=>{handleSucessfulResponse(response);})
         .catch((err)=>{handleFailingResponse(err);})        
     },[state]);
