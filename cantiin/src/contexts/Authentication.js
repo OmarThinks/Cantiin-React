@@ -8,14 +8,15 @@ const AuthContext = createContext();
 export default AuthContext;
 
 const AuthContextProvider = (props) => {
-    
-    const [authState, setAuthState] = useState( 
-        {
-            "is_authenticated":false,
-            "user":null
-        } 
-    );
+    console.log(localStorage.getItem("authState"))
+    let defaultAuthState= 
+        (localStorage.getItem("authState")!==null) 
+        ? JSON.parse(localStorage.getItem("authState")) 
+        : { "is_authenticated":false, "user":null} ;
 
+    const [authState, setAuthState] = useState( defaultAuthState );
+
+    console.log(authState);
 
     const refetchIsAuthenticated = () =>{
         fetchers.auth.who()
@@ -26,7 +27,7 @@ const AuthContextProvider = (props) => {
         })
         .catch((err)=>{setAuthState({"is_authenticated":false, "user":null});
         })
-        .finally(()=>{localStorage.setItem("authState",authState.is_authenticated.toString())});
+        .finally(()=>{localStorage.setItem("authState",JSON.stringify(authState))});
     }
     
     useEffect(()=>{refetchIsAuthenticated();},[localStorage.getItem("authState")]);
