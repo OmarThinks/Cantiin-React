@@ -26,7 +26,7 @@ function getPureUrl(url)
 function getUrlPath(url)
 {
     const parsedUrl = new URL(url);
-    return parsedUrl.pathname;
+    return (parsedUrl.pathname + parsedUrl.search);
 }
 
 

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import {Link} from 'react-router-dom';
 
+import {getUrlPath} from "../functions/urls";
+
 var assert = require('assert');
 
 /* it takes these inputs
@@ -77,7 +79,8 @@ const PaginationButton = (props) => {
     }
     else{
         return <li className="paginationListIndex">
-            <Link className="paginationLink" to={link}>
+            
+            <Link className="paginationLink" to={getUrlPath(link)}>
                 <button className="PaginationButton">{buttonText}</button>
             </Link>
         </li>;
