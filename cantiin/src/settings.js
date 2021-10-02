@@ -10,10 +10,10 @@ const backend_urls =
     },
     "auth":
     {
-        "user":"/api/auth/custom/user/",
-        "signup":"/api/auth/users/",
-        "login":"/api/auth/custom/login/",
-        "logout":"/api/auth/custom/logout/",
+        "user":backend_url+"/api/auth/custom/user/",
+        "signup":backend_url+"/api/auth/users/",
+        "login":backend_url+"/api/auth/custom/login/",
+        "logout":backend_url+"/api/auth/custom/logout/",
     }
 
 };

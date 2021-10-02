@@ -20,11 +20,14 @@ const AuthContextProvider = (props) => {
         .then((response)=>{setAuthState({
             "is_authenticated":true,
             "user":response.data
-        })})
-        .catch((err)=>{setAuthState({"is_authenticated":false, "user":null})});
+        });
+        })
+        .catch((err)=>{setAuthState({"is_authenticated":false, "user":null});
+        })
+        .finally(()=>{localStorage.setItem("authState",authState.is_authenticated.toString())});
     }
-
-    //useEffect(()=>{refetchIsAuthenticated();},[authState]);//resulkts in infinity loop
+    
+    useEffect(()=>{refetchIsAuthenticated();},[localStorage.getItem("authState")]);
 
     return ( 
     <AuthContext.Provider value={authState, refetchIsAuthenticated}>
