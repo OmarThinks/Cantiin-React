@@ -8,7 +8,7 @@ const AuthContext = createContext();
 export default AuthContext;
 
 const AuthContextProvider = (props) => {
-    console.log(localStorage.getItem("authState"))
+    //console.log(localStorage.getItem("authState"))
     let defaultAuthState= 
         (localStorage.getItem("authState")!==null) 
         ? JSON.parse(localStorage.getItem("authState")) 
@@ -16,7 +16,7 @@ const AuthContextProvider = (props) => {
 
     const [authState, setAuthState] = useState( defaultAuthState );
 
-    console.log(authState);
+    //console.log(authState);
 
     const refetchIsAuthenticated = () =>{
         fetchers.auth.who()

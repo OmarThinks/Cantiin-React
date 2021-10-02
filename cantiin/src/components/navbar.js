@@ -3,16 +3,27 @@ import {settings} from '../settings';
 
 import { Fragment, Component, useContext } from 'react';
 
+import fetchers from "../helpers/fetchers";
 
 import  AuthContext  from '../contexts/Authentication';
 
 
 const NavBarLi = (props) => {
     
-    if(props.logout)
+    console.log(props);
+    console.log(props.type);
+
+    const {refetchIsAuthenticated} = useContext(AuthContext);
+
+    console.log(refetchIsAuthenticated);
+
+    if(props.type === "logout")
     {
         const logmeout = (e) =>{
             console.log("Let's Logout");
+            fetchers.auth.logout()
+            .then((response)=>{refetchIsAuthenticated();})
+            .catch((err)=>{refetchIsAuthenticated();});
         }
 
         return (<li className="navBarList-Index">
@@ -23,7 +34,6 @@ const NavBarLi = (props) => {
         </a>
         </li>)
     }
-
 
 
 
@@ -52,16 +62,15 @@ const NavBar = (props) => {
     if(is_authenticated)
     {
         //console.log("He is Logged In");
-        login_partial= <NavBarLi text="Log Out"
-        isLogoutButton={true}/>;
+        login_partial= <NavBarLi text="Log Out" type="logout"/>;
 
     }
 
     else{
         //console.log("He is Logged Out");
         login_partial= <Fragment>
-        <NavBarLi text="Login" link={settings.frontend_urls.auth.login}/>
-        <NavBarLi text="Sign Up" link={settings.frontend_urls.auth.signup}/>
+        <NavBarLi text="Login" link={settings.frontend_urls.auth.login} type="link"/>
+        <NavBarLi text="Sign Up" link={settings.frontend_urls.auth.signup} type="link"/>
     </Fragment>
     ;
         
@@ -70,8 +79,8 @@ const NavBar = (props) => {
     return(
         <div className="navBarDiv">
                <ul className="navBarList">
-                    <NavBarLi text="Home" link={settings.frontend_urls.home}/>
-                    <NavBarLi text="Products" link={settings.frontend_urls.products.list}/>
+                    <NavBarLi text="Home" link={settings.frontend_urls.home} type="link"/>
+                    <NavBarLi text="Products" link={settings.frontend_urls.products.list} type="link"/>
                     </ul>
                 <ul className="navBarList navBarList-Right">
 
