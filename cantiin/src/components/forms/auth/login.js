@@ -59,12 +59,12 @@ const LoginForm = () => {
 <div>
     <label>Username: </label>
     <input type="text" name="username" value={form.data.username} onChange={handleChange}/>
-    <span className="form-error" name="username">{form.errors.username}</span>
+    <span className="form-error" name="username"> {form.errors.username}</span>
     </div>
     <div>
     <label>Password: </label>
     <input type="text" name="password" value={form.data.password} onChange={handleChange}/>
-    <span className="form-error" name="password">{form.errors.password}</span>
+    <span className="form-error" name="password"> {form.errors.password}</span>
     </div>
     <input type="submit" value="Login"/>
 
