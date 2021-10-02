@@ -24,16 +24,14 @@ const NavBarLi = (props) => {
 
 const NavBar = (props) => {
     
-    let authContext = useContext(AuthContext);
+    let {is_authenticated} = useContext(AuthContext);
 
 
-    let isLoggedIn=props.isLoggedIn;
 
-    console.log(isLoggedIn);
-    console.log(authContext);
+    console.log(is_authenticated);
 
     let login_partial = "";
-    if(isLoggedIn)
+    if(is_authenticated)
     {
         //console.log("He is Logged In");
         login_partial= <NavBarLi text="Log Out" link={settings.frontend_urls.auth.logout}/>;
