@@ -42,9 +42,9 @@ const ProductsList = () => {
     const handleFailingResponse = (err) =>
     {
 
-        console.log(err);
+        /*console.log(err);
         console.log(err.toString());
-        console.log(err.response);
+        console.log(err.response);*/
         
         let error = "Something went wrong";
         try {
@@ -60,7 +60,7 @@ const ProductsList = () => {
             "items":[],
             "response":null,
             "success":false,
-            "err":error
+            "err":<div className="form-error">{error}</div>
         }
         );
     }
