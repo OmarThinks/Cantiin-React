@@ -61,8 +61,7 @@ const LoginForm = () => {
         ...form,
         errMsg:"Something went wrong"
     });
-  })
-  ;
+  });
     
   }
 

@@ -22,7 +22,8 @@ const SignupForm = () => {
   const [form,setForm] = useState(
     {
       data:   {username:"", password:"", re_password:""},
-      errors: {username:"", password:"", re_password:""}
+      errors: {username:"", password:"", re_password:""},
+      errMsg:""
     });
     
   const {successfulUserResponse} = useContext(AuthContext);
@@ -65,6 +66,13 @@ const SignupForm = () => {
         ...form.errors,
         ...data
       }
+    });
+  })
+  .catch(()=>{
+    setForm(
+      {
+        ...form,
+        errMsg:"Something went wrong"
     });
   });
     
@@ -112,6 +120,11 @@ const SignupForm = () => {
     
     
     <input type="submit" value="Create Account"/>
+
+
+    <div className="message-of-error-page">{form.errMsg}</div>
+
+
 
   </form> );
 }
