@@ -1,3 +1,4 @@
+//const backend_url = "https://cantiin.com/hgjhgjhgjh";
 const backend_url = "https://cantiin.com";
 //const backend_url = "http://127.0.0.1:8000";
 const frontend_url = "";

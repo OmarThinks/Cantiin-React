@@ -24,7 +24,7 @@ const ProductsList = () => {
 
     const handleSucessfulResponse = (response) =>
     {
-        console.log(response);
+        //console.log(response);
         
         setState(
         {
@@ -41,6 +41,9 @@ const ProductsList = () => {
 
     const handleFailingResponse = (err) =>
     {
+        /*console.log(err);
+        console.log(err.toString());
+        console.log(err.response);*/
         setState({
             ...state,
             "loaded":true,
@@ -58,7 +61,7 @@ const ProductsList = () => {
         setState(initialState);
         fetchers.products.list(getCurrentWindowPage())
         .then((response)=>{handleSucessfulResponse(response);})
-        .catch((err)=>{handleFailingResponse(err);})        
+        .catch((err)=>{handleFailingResponse(err);})       
     },[window.location.href]);
     
     
@@ -76,9 +79,9 @@ const ProductsList = () => {
     if(state.success)
     {
         let productsList = state.items.map(product=>{return(
-        <Fragment>
-            <ProductCard item={product}/>
-        </Fragment>);}
+        
+            <ProductCard key={product.id} item={product}/>
+        );}
         );
     
         return (

@@ -57,7 +57,7 @@ const SignupForm = () => {
     window.location.replace("/login");
   })
   .catch(function (error) {
-    console.log(error);
+    //console.log(error);
     let data = error.response.data;
     setForm({
       ...form,

@@ -12,17 +12,17 @@ import {Link} from 'react-router-dom';
 
 const NavBarLi = (props) => {
     
-    console.log(props);
-    console.log(props.type);
+    //console.log(props);
+    //console.log(props.type);
 
     const {refetchIsAuthenticated} = useContext(AuthContext);
 
-    console.log(refetchIsAuthenticated);
+    //console.log(refetchIsAuthenticated);
 
     if(props.type === "logout")
     {
         const logmeout = (e) =>{
-            console.log("Let's Logout");
+            //console.log("Let's Logout");
             fetchers.auth.logout()
             .then((response)=>{refetchIsAuthenticated();})
             .catch((err)=>{refetchIsAuthenticated();});
@@ -55,7 +55,7 @@ const NavBarLi = (props) => {
 const NavBar = (props) => {
     let {is_authenticated} = useContext(AuthContext);
 
-    console.log(is_authenticated);
+    //console.log(is_authenticated);
 
     let login_partial = "";
     if(is_authenticated)
