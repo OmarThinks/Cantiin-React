@@ -79,7 +79,7 @@ const NavBar = (props) => {
         <div className="navBarDiv">
                <ul className="navBarList">
                     <NavBarLi text="Home" link={settings.frontend_urls.home} type="link"/>
-                    <NavBarLi text="Products" link={settings.frontend_urls.products.list} type="link"/>
+                    <NavBarLi text="Products" link={settings.frontend_urls.products.list()} type="link"/>
                     </ul>
                 <ul className="navBarList navBarList-Right">
 

@@ -11,8 +11,7 @@ function productsListFetcher(pageNumber = 1)
 {
     var config = {
         method: 'get',
-        url: settings.backend_urls.products.list+`?page=${pageNumber}`,
-          
+        url: settings.backend_urls.products.list(pageNumber),
       };
     let fetcher = axios(config);
     return fetcher
