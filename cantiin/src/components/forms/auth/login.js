@@ -22,7 +22,8 @@ const LoginForm = () => {
   const [form,setForm] = useState(
     {
       data:   {username:"", password:""},
-      errors: {username:"", password:""}
+      errors: {username:"", password:""},
+      errMsg:""
     });
 
   
@@ -53,7 +54,15 @@ const LoginForm = () => {
         ...data
       }
     });
-  });
+  })
+  .catch(()=>{
+    setForm(
+      {
+        ...form,
+        errMsg:"Something went wrong"
+    });
+  })
+  ;
     
   }
 
@@ -89,8 +98,15 @@ const LoginForm = () => {
     <span className="form-error" name="password"> {form.errors.password}</span>
     </div>
     <input type="submit" value="Login"/>
+    
+    
+    <div className="message-of-error-page">{form.errMsg}</div>
 
-  </form> );
+  </form> 
+  
+  
+  
+  );
 }
  
 export default LoginForm;
