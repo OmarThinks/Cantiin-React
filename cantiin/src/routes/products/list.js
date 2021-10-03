@@ -60,7 +60,7 @@ const ProductsList = () => {
             "items":[],
             "response":null,
             "success":false,
-            "err":<div className="form-error">{error}</div>
+            "err":<div className="message-of-error-page">{error}</div>
         }
         );
     }

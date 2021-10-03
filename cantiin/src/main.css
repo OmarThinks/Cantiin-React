@@ -222,3 +222,14 @@ html{
 .navBarList-Index > .active{
     background-color: lime;
 }
+
+
+
+
+
+.message-of-error-page
+{
+    color: red;
+    font-size: 2em;
+    font-weight: bold;
+}
