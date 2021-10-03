@@ -41,16 +41,26 @@ const ProductsList = () => {
 
     const handleFailingResponse = (err) =>
     {
-        /*console.log(err);
+
+        console.log(err);
         console.log(err.toString());
-        console.log(err.response);*/
+        console.log(err.response);
+        
+        let error = "Something went wrong";
+        try {
+            error=err.response.data.detail;
+            if(error== undefined)
+            {error="Something went wrong";}
+        } catch (error) {
+        }
+        
         setState({
             ...state,
             "loaded":true,
             "items":[],
             "response":null,
             "success":false,
-            "err":err
+            "err":error
         }
         );
     }
@@ -98,7 +108,7 @@ const ProductsList = () => {
     return (
         <div>
             <h1>Products List:</h1>
-            <div>{state.err.response.data.detail}</div>
+            <div>{state.err}</div>
         </div>
     );
 }
