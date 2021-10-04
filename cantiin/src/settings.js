@@ -44,7 +44,7 @@ const products_list_function_frontend = (page=null) =>
 
 const frontend_urls = 
 {
-    "home": "",
+    "home": "/",
     "products":
     {
         "list": products_list_function_frontend

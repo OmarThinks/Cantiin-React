@@ -19,11 +19,13 @@ import SignupRoute from "./routes/auth/signup";
 
 
 function App() {
+  let location = window.location.href;
+  console.log(location);
   return (
     <BrowserRouter>
       <AuthContextProvider>
         <div className="App">
-          <NavBar isLoggedIn={false}/>
+          <NavBar isLoggedIn={false} location={window.location.href}/>
             <div className="content">
               <Route exact path="/" component={Home} />
               <Route path="/products" component={ProductsList} />

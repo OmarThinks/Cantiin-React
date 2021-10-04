@@ -7,6 +7,8 @@ import fetchers from "../helpers/fetchers";
 
 import  AuthContext  from '../contexts/Authentication';
 
+import { getPureUrl } from '../functions/urls';
+
 
 import {Link} from 'react-router-dom';
 
@@ -38,10 +40,15 @@ const NavBarLi = (props) => {
     }
 
 
+    let className = "navBarList-Index-Link";
+
+    if(props.is_active===true)
+    {className = "navBarList-Index-Link navBarList-Index-Link-active";}
+
 
     return (
     <li className="navBarList-Index">  
-            <Link className="navBarList-Index-Link" to={props.link}>
+            <Link className={className} to={props.link} >
                 <button className="navBarIndexButton">
                     {props.text}
                 </button>                
