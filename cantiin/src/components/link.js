@@ -15,7 +15,6 @@ const Link = (props) => {
     let to = props.to;
     return ( 
         <StandardLink className={className} to={to}/>
-
      );
 }
  
