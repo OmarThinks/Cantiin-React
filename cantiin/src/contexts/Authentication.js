@@ -16,7 +16,6 @@ const AuthContextProvider = (props) => {
 
     const [authState, setAuthState] = useState( defaultAuthState );
 
-    //console.log(authState);
 
     
     const successfulUserResponse = (response) =>{

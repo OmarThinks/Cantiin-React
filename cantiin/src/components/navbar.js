@@ -1,7 +1,7 @@
 import {settings} from '../settings';
 
 
-import { Fragment, Component, useContext } from 'react';
+import { Fragment, Component, useContext, useState, useEffect } from 'react';
 
 import fetchers from "../helpers/fetchers";
 
@@ -62,15 +62,25 @@ const NavBarLi = (props) => {
 const NavBar = (props) => {
     let {is_authenticated} = useContext(AuthContext);
 
+    let getActiveLink = () =>{
+        let url = new URL(window.location.href);
+        console.log(url);
+    };
+
+    getActiveLink();
+
+    let [activeLink, setActiveLink] = useState("");
+
     //console.log(is_authenticated);
+
 
     let login_partial = "";
     if(is_authenticated)
     {
         //console.log("He is Logged In");
         login_partial= <NavBarLi text="Log Out" type="logout"/>;
-
     }
+
 
     else{
         //console.log("He is Logged Out");
